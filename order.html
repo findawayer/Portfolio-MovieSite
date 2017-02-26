@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="ko" dir="ltr">
+
+<head>
+
+	<!-- Charset, Viewport -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Title -->
+	<title>무비</title>
+	<!-- Description -->
+	<meta name="description" content="영화정보 사이트">
+	<meta name="keywords" content="영화">
+	<meta name="author" content="Seoul Arts Center">
+	<meta name="robots" content="index, follow">
+    <!-- Web Font -->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+    <!-- Icon Font -->
+    <link rel="stylesheet" type="text/css" href="plugins/font-awesome/css/font-awesome.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- 헤더 -->
+    <header id="header" class="header header--fixed group">
+        <div class="container">
+            
+            <div role="banner" class="header__masthead group">
+                <button id="sidemenuTrigger" class="header__menu hamburger hamburger--inverse">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <a role="button" class="header__home" href="#">무빙</a>
+            </div>
+
+            <form id="searchBox" name="searchBox" class="header__search input-group">
+                <input type="search" id="search" class="ui-input">
+                <label for="search" class="input-placeholder">검색어를 입력하세요.</label>
+            </form>
+
+        </div>
+    </header>
+
+    <!-- 컨텐츠 영역 -->
+    <main id="content" class="content">
+        <div class="container">
+        
+            <div class="content__heading">
+                <h1>좌석 예매</h1>
+                <p>간편하고 신속한 영화관 티켓 예매</p>
+            </div>
+
+            <form id="orderInput" class="content__section order-preview">
+                <div class="col-holder">
+                    <div class="order-preview__thumb col-4">
+                        <a class="image-link" href="#">
+                            <img class="image--fluid" src="img/movies/movie_로그원.jpg" alt="로그 원: 스타워즈 스토리">
+                        </a>
+                    </div>
+                    <div class="order-preview__info col-8">
+                        <h2>로그 원: 스타워즈 스토리</h2>
+                        <p>2017년 1월 1일 (일) 오후 5:30<br>서울 롯데시네마 영등포점 (잔여좌석 44석)</p>
+                        
+                        <div class="order-preview__quantity">
+                            <input type="text" size="3" id="orderQuantity" name="orderQuantity" value="1" class="ui-input">
+                            <span>장</span>
+                            <a id="decreaseQuantity" class="ui-control ui-control--plus" href="#">-</a>
+                            <a id="increaseQuantity" class="ui-control ui-control--minus" href="#">+</a>
+                        </div>
+
+                        <strong class="order-preview__total">결제금액: <span id="orderTotal">9,500</span>원 (수수료 포함)</strong>
+                    </div>
+                </div>
+
+                <p class="warning">전화번호, 이메일을 입력하면  예매정보 SMS가 발송됩니다.</p>
+
+                <div class="order-whereto">
+                    <div class="order-whereto__label">전화번호</div>
+                    <div class="group">
+                        <div class="order-whereto__field order-whereto__field--phone1">
+                            <select id="userCell1" name="userCell1" class="ui-input ui-select">
+                                <option value="010" selected>010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                                <option value="018">018</option>
+                                <option value="019">019</option>
+                            </select>
+                        </div>
+                        <div class="order-whereto__punctuation">-</div>
+                        <div class="order-whereto__field">
+                            <input id="userCell2" class="ui-input" type="tel">
+                        </div>
+                        <div class="order-whereto__punctuation">-</div>
+                        <div class="order-whereto__field">
+                            <input id="userCell3" class="ui-input" type="tel">
+                        </div>
+                    </div>
+                    <div class="order-whereto__label">이메일 주소</div>
+                    <div class="group">
+                        <div class="order-whereto__field order-whereto__field--email1">
+                            <input type="text" id="userEmail1" name="userEmail" class="ui-input">
+                        </div>
+                        <div class="order-whereto__punctuation">@</div>
+                        <div class="order-whereto__field order-whereto__field--email2">
+                            <input type="text" id="userEmail2" name="userEmail" class="ui-input">
+                        </div>
+                        <div class="order-whereto__field order-whereto__field--select">
+                            <select id="selectEmail" name="userEmail" class="ui-input ui-select">
+                                <option value="custom">직접입력</option>
+                                <option value="naver.com">naver.com</option>
+                                <option value="daum.net">daum.net</option>
+                                <option value="gmail.com">gmail.com</option>
+                                <option value="hotmail.com">hotmail.com</option>
+                                <option value="nate.com">nate.com</option>
+                                <option value="korea.com">korea.com</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-terms">
+                    <p>입력하신 개인정보는</p>
+                    <ul>
+                        <li>예매하신 극장에 제공되며, 티켓 발권에 이용됩니다.</li>
+                        <li>입력된 날짜로부터 180일 동안 보관되며, 이후에는 소멸합니다.</li>
+                        <li>상영정보가 변경될 경우 입력하신 전화 및 이메일로 알려드립니다.</li>
+                    </ul>
+                </div>
+
+                <div class="ui-button-wrap">
+                    <input type="submit" class="ui-button" value="위 약관에 동의하며 구매를 진행합니다.">
+                </div>
+            </form>
+
+        </div>
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="container">
+
+            <div class="footer__copyright">Moving Inc., all rights reserved.</div>
+
+            <nav class="footer__nav">
+
+                <ul class="footer__menu list-inline">
+                    <li class="list-inline__item">
+                        <a href="#">사이트맵</a>
+                    </li>
+                    <li class="list-inline__item">
+                        <a href="#">정책</a>
+                    </li>
+                    <li class="list-inline__item">
+                        <a href="#">저작권</a>
+                    </li>
+                    <li class="list-inline__item">
+                        <a href="#">이용안내</a>
+                    </li>
+                    <li class="list-inline__item">
+                        <a href="#">문의하기</a>
+                    </li>
+                    <li class="list-inline__item">
+                        <a href="#">데스크탑 버전</a>
+                    </li>
+                </ul>
+
+                <ul class="footer__social list-inline">
+                    <li class="list-inline__item">
+                        <a href="#">
+                            <img class="footer__social__icon" src="img/icons/social-facebook.svg" alt="facebook">
+                        </a>
+                    </li>
+                    <li class="list-inline__item">
+                        <a href="#">
+                            <img class="footer__social__icon" src="img/icons/social-twitter.svg" alt="twitter">
+                        </a>
+                    </li>
+                    <li class="list-inline__item">
+                        <a href="#">
+                            <img class="footer__social__icon" src="img/icons/social-naverblog.svg" alt="naverblog">
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+
+        </div>
+    </footer>
+
+    <!-- 슬라이드아웃 메뉴 -->
+    <aside id="sidemenu" class="sidebar">
+        <div class="sidebar__account">
+            <ul role="menu" class="list-inline inline-fix">
+                <li role="presentation" class="list-inline__item"><a role="menuitem" class="login" href="#">로그인</a></li>
+                <li role="presentation" class="list-inline__item"><a role="menuitem" class="signup" href="#">계정 만들기</a></li>
+            </ul>
+        </div>
+        <nav class="sidebar__menuset">
+            <h2>영화 탐색하기</h2>
+            <ul role="menu" class="list-unstyled">
+                <li role="presentation"><a role="menuitem" href="#">
+                    <i class="fa fa-play-circle" aria-hidden="true"></i>
+                    <span>상영중인 영화</span>
+                </a></li>
+                <li role="presentation"><a role="menuitem" href="#">
+                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                    <span>개봉예정 영화</span>
+                </a></li>
+                <li role="presentation"><a role="menuitem" href="#">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <span>영화 상세검색</span>
+                </a></li>
+            </ul>
+        </nav>
+        <nav class="sidebar__menuset">
+            <h2>추가 메뉴</h2>
+            <ul role="menu" class="list-unstyled">
+                <li role="presentation"><a role="menuitem" href="#">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <span>내 북마크</span>
+                </a></li>
+                <li role="presentation"><a role="menuitem" href="#">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <span>내 예매기록</span>
+                </a></li>
+                <li role="presentation"><a role="menuitem" href="#">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                    <span>고객센터</span>
+                </a></li>
+            </ul>
+        </nav>
+    </aside>
+
+	<!-- JavaScripts -->
+    <script type="text/javascript" src="plugins/isotope/dist/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="js/common.min.js"></script>
+    <script type="text/javascript" src="js/order.min.js"></script>
+
+</body>
+
+</html>
