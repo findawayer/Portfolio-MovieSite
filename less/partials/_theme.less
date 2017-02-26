@@ -325,13 +325,15 @@
 	top: 60px;
 	left: 0;
 	bottom: 0;
+	visibility: hidden; // prevent flickering
 	z-index: 200;
 	.hw-accel(-100%, 0, 0);
-	will-change: transform;
-	transition: transform .3s ease-out;
+	transition: visibility 0s linear .3s, transform .3s ease-out;
 
 	&.open {
+		visibility: visible;
 		transform: translate3d(0, 0, 0);
+		transition: visibility 0s linear 0s, transform .3s ease-out;
 	}
 
 	&__account {

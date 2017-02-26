@@ -79,6 +79,7 @@
 }
 .image--fluid {
 	max-width: 100%;
+	height: auto;
 }
 
 // 텍스트 랩핑
@@ -121,6 +122,7 @@
 	font-size: 1.125rem;
     line-height: 18px;
 	box-sizing: border-box;
+	touch-action: manipulation;
 }
 
 // 인풋
@@ -225,6 +227,25 @@
 		background: white;
 	}
 }
+
+// 긴 텍스트 접기
+.text-collapsed {
+	.is-collapsed {
+		display: none;
+	}
+
+	&.is-expanded {
+		.ellipsis,
+		.read-more {
+			display: none;
+		}
+
+		.is-collapsed {
+			display: initial;
+		}
+	}
+}
+
 
 // 별점
 .five-star-rating {

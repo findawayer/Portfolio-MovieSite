@@ -43,6 +43,7 @@
 }
 .image--fluid {
   max-width: 100%;
+  height: auto;
 }
 .text--wrap {
   word-break: keep-all;
@@ -67,6 +68,7 @@
   font-size: 1.125rem;
   line-height: 18px;
   box-sizing: border-box;
+  touch-action: manipulation;
 }
 .ui-input {
   background: #2c2f34;
@@ -168,6 +170,16 @@
 }
 .hamburger--inverse > span {
   background: white;
+}
+.text-collapsed .is-collapsed {
+  display: none;
+}
+.text-collapsed.is-expanded .ellipsis,
+.text-collapsed.is-expanded .read-more {
+  display: none;
+}
+.text-collapsed.is-expanded .is-collapsed {
+  display: initial;
 }
 .five-star-rating {
   display: inline;
@@ -1177,15 +1189,17 @@ input[type="radio"]:checked + label::after {
   top: 60px;
   left: 0;
   bottom: 0;
+  visibility: hidden;
   z-index: 200;
   transform: translate3d(-100%, 0, 0);
   backface-visibility: hidden;
   perspective: 1000;
-  will-change: transform;
-  transition: transform 0.3s ease-out;
+  transition: visibility 0s linear 0.3s, transform 0.3s ease-out;
 }
 .sidebar.open {
+  visibility: visible;
   transform: translate3d(0, 0, 0);
+  transition: visibility 0s linear 0s, transform 0.3s ease-out;
 }
 .sidebar__account .list-inline__item {
   width: 50%;
