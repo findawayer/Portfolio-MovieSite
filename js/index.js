@@ -1,42 +1,46 @@
 ;( function( document ){
 
-	/* 영화목록 masonry */
-	var movieGrid = document.getElementById( "movieGrid" );
-	var movieFilter = document.getElementById( "movieFilter" );
+	window.addEventListener( "DOMContentLoaded", function() {
 
-	if ( movieGrid || movieFilter )  {
-		var movieGridIso = new Isotope( movieGrid, {
-			itemSelector: ".gallery__item",
-			layoutMode: 'fitRows',
-			masonry: {
-				columnWidth: 220
-			}
-		});
+		/* 영화목록 masonry */
+		var movieGrid = document.getElementById( "movieGrid" );
+		var movieFilter = document.getElementById( "movieFilter" );
 
-		var filterFn = function( itemEl ) {
-			var filter = new RegExp( event.target.innerText );
-			var movieItemGenre = itemEl.querySelector( ".gallery__item__genre" ).innerText;
+		if ( movieGrid || movieFilter )  {
+			var movieGridIso = new Isotope( movieGrid, {
+				itemSelector: ".gallery__item",
+				layoutMode: 'fitRows',
+				masonry: {
+					columnWidth: 220
+				}
+			});
 
-			return filter.test( movieItemGenre );
-		};
+			var filterFn = function( itemEl ) {
+				var filter = new RegExp( event.target.innerText );
+				var movieItemGenre = itemEl.querySelector( ".gallery__item__genre" ).innerText;
 
-		movieFilter.addEventListener( "click", function( event ) {
-			var target = event.target;
+				return filter.test( movieItemGenre );
+			};
 
-			if ( target.tagName == "BUTTON" ) {
-				target.parentElement.querySelector( ".selected" ).classList.remove( "selected" );
-				target.classList.add( "selected" );
+			movieFilter.addEventListener( "click", function( event ) {
+				var target = event.target;
 
-				var filterValue = event.target.hasAttribute( "data-filter" )
-					? event.target.getAttribute( "data-filter" )
-					: filterFn;
+				if ( target.tagName == "BUTTON" ) {
+					target.parentElement.querySelector( ".selected" ).classList.remove( "selected" );
+					target.classList.add( "selected" );
 
-				movieGridIso.arrange({
-					filter: filterValue
-				});
+					var filterValue = event.target.hasAttribute( "data-filter" )
+						? event.target.getAttribute( "data-filter" )
+						: filterFn;
 
-			}
-		});
-	}
+					movieGridIso.arrange({
+						filter: filterValue
+					});
+
+				}
+			});
+		}
+
+	});
 
 })( document );
