@@ -1,0 +1,370 @@
+@charset "UTF-8";
+
+// --------------------------------------------------
+// Less mixins
+// @Author: me
+// @License: MIT License
+// --------------------------------------------------
+
+// 레이아웃 관련 ------------------------------
+
+// float 클리어링
+.group {
+	&:after {
+		clear: both;
+		content: "";
+		display: table;
+	}
+}
+
+// 마진, 패딩
+/*
+.spacing( @type, @i: 1 ) when not ( @i > 3 ) {
+	@interval: 1rem * @i;
+
+	.@{type}-@{i} { @{type}: @interval !important; }
+	.@{type}-top-@{i} { @{type}-top: @interval !important; }
+	.@{type}-right-@{i} { @{type}-right: @interval !important; }
+	.@{type}-bottom-@{i} { @{type}-bottom: @interval !important; }
+	.@{type}-left-@{i} { @{type}-left: @interval !important; }
+
+	.spacing( @type, ( @i + 1 ) );
+}
+.spacing( margin );
+.spacing( padding );
+*/
+
+// 요소를 센터링
+.center-fix( x ) {
+	transform: translateX(-50%);
+}
+.center-fix( y ) {
+	transform: translateY(-50%);
+}
+.center-fix( z ) {
+	transform: translate(-50%, -50%);
+}
+
+// inline 요소 사이에서 생기는 margin을 제거
+// html minifying으로도 해결 가능하지만, 그렇지 않은 환경에 대한 대안
+.inline-fix {
+	font-size: 0;
+
+	> * {
+		font-size: 1rem;
+	}
+}
+
+// 목록 태그의 기본 스타일링 제거
+.list-unstyled {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+// 목록 태그의 기본 스타일링 제거 + 항목을 가로로 배열
+.list-inline {
+	&:extend( .list-unstyled );
+}
+.list-inline__item {
+	display: inline-block;
+}
+
+
+// 컨텐츠 관련 ------------------------------
+
+// 반응형 이미지
+.image-link {
+	display: block;
+}
+.image--fluid {
+	max-width: 100%;
+}
+
+// 텍스트 랩핑
+.text--wrap {
+	word-break: keep-all;
+}
+
+// 경고문
+.warning {
+	color: @giants-orange;
+}
+
+
+// 컴포넌트 관련 ------------------------------
+// 아이콘 폰트
+.icon-font() {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// UI 버튼
+.ui-button-wrap {
+	margin: 1rem 0;
+	text-align: center;
+}
+.ui-button {
+	background: transparent;
+	border: 1px solid white;
+	border-radius: 44px;
+	color: white;
+	display: inline-block;
+	min-width: 140px;
+    padding: 10px 20px 12px;
+	height: 44px;
+	text-align: center;
+	font-size: 1.125rem;
+    line-height: 18px;
+	box-sizing: border-box;
+}
+
+// 인풋
+.ui-input {
+	background: @gunmetal;
+	color: @roman-silver;
+	border: none;
+	color: white;
+	display: inline-block;
+	height: 36px;
+	margin: 0;
+	padding: 0 10px;
+	vertical-align: middle;
+	line-height: 36px;
+	text-align: left;
+	white-space: nowrap;
+	font-family: inherit;
+	font-size: inherit;
+	box-sizing: border-box;
+	-webkit-appearance: none !important;
+	-moz-appearance: none !important;
+	appearance: none !important;
+}
+
+// 인풋 플레이스홀더
+.ui-input-group {
+	padding-top: 16px;
+	position: relative;
+}
+.ui-input-placeholder {
+	color: @medium-gray;
+	position: absolute;
+	top: 27px;
+	left: 1em;
+	line-height: 14px;
+	font-size: 14px;
+	cursor: text;
+	transition: top .2s, left .2s, font-size .2s;
+
+	&--float {
+		top: 0;
+		left: 0;
+		font-size: 12px;
+	}
+}
+
+// 셀렉트
+.ui-select {
+	background: @gunmetal url(../img/icons/down-chevron.svg) no-repeat right 15px center;
+	background-size: 10px 10px;
+
+	&:disabled {
+		background: @gunmetal;
+		color: darken(@medium-gray, 20%);
+	}
+}
+
+// 필드 컨트롤
+.ui-control {
+	background: @gunmetal;
+	color: @medium-gray;
+	margin: 4px 1px;
+	padding: 0 10px;
+	display: inline-block;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	cursor: pointer;
+}
+
+// 햄버거 아이콘
+.hamburger {
+	.ui-input();
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	position: relative;
+
+	> span {
+		display: inline-block;
+		width: 20px;
+		height: 2px;
+		background: black;
+		position: absolute;
+		left: 2px;
+
+		&:first-child {
+			top: 4px;
+		}
+
+		&:nth-child(2) {
+			top: 11px;
+		}
+
+		&:nth-child(3) {
+			top: 18px;
+		}
+	}
+}
+.hamburger--inverse {
+	> span {
+		background: white;
+	}
+}
+
+// 별점
+.five-star-rating {
+	display: inline;
+	&:extend( .list-unstyled );
+	.inline-fix;
+
+	li {
+		display: inline;
+
+		&:before {
+			content: "★";
+			color: @outer-space;
+		}
+
+		&.is-active:before {
+			color: @deep-lemon;
+		}
+	}
+	
+	&.dynamic {
+		cursor: pointer;
+		touch-action: manipulation;
+
+		&.submitted {
+			cursor: default;
+			touch-action: none;
+		}
+	}
+}
+.numbered-rating {
+	color: @deep-lemon;
+	margin-left: .5em;
+}
+
+// 막대그래프
+.graph {
+	display: table;
+	border-collapse: collapse;
+	empty-cells: show;
+	table-layout: fixed;
+	width: 100%;
+	margin: 0 0 .5rem;
+	padding: 0 !important;
+
+	&__child {
+		display: table-cell;
+		height: 1.6em;
+		vertical-align: middle;
+	}
+
+	&__track {
+		background: @black-coral;
+		display: block;
+		margin: .5em 0;
+		height: .6em;
+		.group();
+	}
+	
+	&__thumb {
+		background: @vivid-cerulean;
+		display: block;
+		height: .6em;
+		float: left;
+	}
+
+	&__caption {
+		color: white;
+		white-space: nowrap;
+	}
+}
+
+// 갤러리
+.gallery {
+	&__wrap {
+		&:extend( .list-unstyled );
+		margin-left: -10px !important;
+		margin-right: -10px !important;
+	}
+
+	&__item {
+		float: left;
+
+		&.clear {
+			clear: left;
+		}
+
+		> figure {
+			margin: 10px 10px 20px;
+		}
+
+        &__link {
+        	display: block;
+        }
+
+        &__image {
+        	max-width: 100%; // 반응형
+        }
+        
+        &__caption {
+        	dt {
+        		line-height: 1.4;
+        		word-break: keep-all;
+        	}
+        	dd {
+        		margin-top: .25em;
+        	}
+        }
+
+        &__rating {
+        	color: @deep-lemon;
+        
+        	&.unrated {
+        		color: @roman-silver;
+        	}
+        
+        	i + span {
+        		margin-left: .25em;
+        	}
+        }
+	}
+}
+
+// 더 읽기
+.read-more {
+	color: @vivid-cerulean;
+}
+
+
+// 제어 관련 ------------------------------
+
+// 텍스트 앤티얼라이싱
+.anti-aliasing() {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// 애니메이션의 하드웨어 가속
+.hw-accel(@x: 0, @y: 0, @z: 0) {
+	transform: translate3d(@x, @y, @z);
+	backface-visibility: hidden;
+	perspective: 1000;
+}

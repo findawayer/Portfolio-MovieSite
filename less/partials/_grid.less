@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+// --------------------------------------------------
+// 그리드 시스템 for LESS
+// @Author: me
+// @Date: 2016-01-03
+// @License: Public Domain
+// --------------------------------------------------
+
+// Config ------------------------------
+
+// Grid
+@columns: 12;
+@column-width: 100% / @columns;
+@column-gap: 10px;
+
+
+// Modules ------------------------------
+
+// Clear fix
+.group() {
+	&:after {
+		clear: both;
+		content: "";
+		display: table;
+	}
+}
+
+
+// Layout ------------------------------
+
+// Page holder
+.container {
+	max-width: 1140px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 20px;
+	.group();
+}
+
+// container holding columns
+.col-holder {
+	margin-left: @column-gap * -0.5 !important;
+	margin-right: @column-gap * -0.5 !important;
+	.group();
+}
+
+// Grid common style
+.col-1 {
+	box-sizing: border-box;
+	float: left;
+	padding-left: @column-gap / 2 !important;
+	padding-right: @column-gap / 2 !important;
+	position: relative;
+}
+
+// [Mixin] Set grid columns
+.setGrid( @n, @i: 1 ) when not ( @i > @n ) {
+
+	// extend all .col- selectors onto .col-1
+	.col-@{i} when ( @i > 1 ) {
+		&:extend( .col-1 );
+	}
+
+	// set .col- selectors width respectively
+	.col-@{i} {
+		width: @column-width * @i;
+	}
+
+	// loop with incresed index
+	.setGrid( @n, ( @i + 1 ) );
+
+}
+// execute
+.setGrid( @columns );
+
+
+// [Mixin] Offset grid columns
+.offsetGrid( @n, @i: 1 ) when not ( @i > @n ) {
+
+	// set .col- selectors width respectively
+	.offset-@{i} {
+		margin-left: @column-width * @i;
+	}
+
+	// loop with incresed index
+	.offsetGrid( @n, ( @i + 1 ) );
+
+}
+//execute
+.offsetGrid( @columns );
+
+
+// Media queries ------------------------------
+@media screen {
+	@media ( max-width: ( @screen-sm - 1 ) ) {
+		// portrait phones
+		.container {
+			width: auto;
+		}
+	}
+	@media ( min-width: @screen-sm ) and ( max-width: ( @screen-md - 1 ) ) {
+		// landscape phones
+		.container {
+			width: auto;
+		}
+	}
+	@media ( min-width: @screen-md ) and ( max-width: ( @screen-lg - 1 ) ) {
+		// tablets
+		.container {
+			width: 720px;
+		}
+	}
+	@media ( min-width: @screen-lg ) and ( max-width: ( @screen-xl - 1 ) ) {
+		// desktops
+		.container {
+			width: 960px;
+		}
+	}
+}

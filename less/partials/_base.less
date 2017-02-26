@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+/* 루트 */
+html {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	font-size: @base-font-size;
+}
+
+body {
+	&:extend( html );
+	background: @raisin-black;
+	color: @base-font-color;
+	min-width: 480px;
+	overflow-x: hidden;
+	position: relative;
+	line-height: @base-line-height;
+	font-family: @base-font;
+	font-weight: @base-font-weight;
+	letter-spacing: @base-tracking;
+	text-rendering: optimizeLegibility;
+	text-size-adjust: none;
+}
+
+/* 헤딩 */
+h1, h2, h3, h4, h5, h6 {
+	color: white;
+	margin: 0 0 1rem;
+}
+h1 {
+	font-size: 1.75rem;
+}
+h2 {
+	font-size: 1.375rem;
+}
+h3 {
+	font-size: 1.125rem;
+}
+h4, h5, h6 {
+	font-size: 1rem;
+}
+
+/* 문단 */
+p {
+	margin: .5rem 0;
+}
+
+/* 정의 */
+dl {
+	margin: 0;
+}
+dt {
+	color: white;
+}
+dd {
+	margin-left: 0;
+}
+
+/* 강조색 */
+th {
+	color: white;
+	font-weight: normal;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+strong,
+em {
+	color: white;
+}
+
+/* 컨텐츠 블럭 */
+figure {
+	margin: 0;
+}
+
+/* 텍스트에리어 */
+textarea {
+	width: 100%;
+	resize: vertical;
+}
+
+/* 라디오 버튼 */
+input[type="radio"] {
+	display: none;
+
+	+ label {
+		display: inline-block;
+		height: 20px;
+		padding-left: 24px;
+		position: relative;
+		vertical-align: middle;
+		line-height: 20px;
+
+		&::before,
+		&::after {
+			content: "";
+			border-radius: 50%;
+			display: block;
+			position: absolute;
+		}
+
+		&::before {
+			background: @roman-silver;
+			width: 16px;
+			height: 16px;
+			top: 2px;
+			left: 0;
+		}
+
+		&::after {
+			background: @gunmetal;
+			width: 6px;
+			height: 6px;
+			top: 7px;
+			left: 5px;
+			visibility: hidden;
+		}
+	}
+
+	&:checked + label {
+		&::after {
+			visibility: visible;
+		}
+	}
+}
