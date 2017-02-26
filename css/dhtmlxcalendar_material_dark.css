@@ -101,12 +101,12 @@
 .dhtmlxcalendar_material .dhtmlxcalendar_month_cont .dhtmlxcalendar_line .dhtmlxcalendar_cell.dhtmlxcalendar_month_hdr .dhtmlxcalendar_month_arrow.dhtmlxcalendar_month_arrow_left,
 .dhtmlxcalendar_material .dhtmlxcalendar_month_cont .dhtmlxcalendar_line .dhtmlxcalendar_cell.dhtmlxcalendar_month_hdr .dhtmlxcalendar_month_arrow.dhtmlxcalendar_month_arrow_left_hover {
   left: 4px;
-  background-image: url("../imgs/dhxcalendar_material/dhxcalendar_arrow_left.png");
+  background-image: url("../plugins/dhtmlxCalendar/imgs/dhxcalendar_material/dhxcalendar_arrow_left.png");
 }
 .dhtmlxcalendar_material .dhtmlxcalendar_month_cont .dhtmlxcalendar_line .dhtmlxcalendar_cell.dhtmlxcalendar_month_hdr .dhtmlxcalendar_month_arrow.dhtmlxcalendar_month_arrow_right,
 .dhtmlxcalendar_material .dhtmlxcalendar_month_cont .dhtmlxcalendar_line .dhtmlxcalendar_cell.dhtmlxcalendar_month_hdr .dhtmlxcalendar_month_arrow.dhtmlxcalendar_month_arrow_right_hover {
   right: 4px;
-  background-image: url("../imgs/dhxcalendar_material/dhxcalendar_arrow_right.png");
+  background-image: url("../plugins/dhtmlxCalendar/imgs/dhxcalendar_material/dhxcalendar_arrow_right.png");
 }
 .dhtmlxcalendar_material .dhtmlxcalendar_month_cont .dhtmlxcalendar_line .dhtmlxcalendar_cell.dhtmlxcalendar_month_hdr .dhtmlxcalendar_month_label_month,
 .dhtmlxcalendar_material .dhtmlxcalendar_month_cont .dhtmlxcalendar_line .dhtmlxcalendar_cell.dhtmlxcalendar_month_hdr .dhtmlxcalendar_month_label_year {
@@ -186,18 +186,18 @@
   text-align: center;
 }
 .dhtmlxcalendar_material .dhtmlxcalendar_dates_cont .dhtmlxcalendar_line li .dhtmlxcalendar_label.dhtmlxcalendar_label_title {
-  background-image: url("../imgs/dhxcalendar_material/dhxcalendar_marker.gif");
+  background-image: url("../plugins/dhtmlxCalendar/imgs/dhxcalendar_material/dhxcalendar_marker.gif");
   background-position: top right;
   background-repeat: no-repeat;
 }
 .dhtmlxcalendar_material .dhtmlxcalendar_dates_cont .dhtmlxcalendar_line li.dhtmlxcalendar_cell {
-  color: #a6a6a6;
+  color: #444;
 }
 .dhtmlxcalendar_material .dhtmlxcalendar_dates_cont .dhtmlxcalendar_line li.dhtmlxcalendar_cell_weekend {
   color: #e6918e;
 }
 .dhtmlxcalendar_material .dhtmlxcalendar_dates_cont .dhtmlxcalendar_line li.dhtmlxcalendar_cell_date {
-  color: #a6a6a6;
+  color: #444;
   background-color: #dcdcdc;
 }
 .dhtmlxcalendar_material .dhtmlxcalendar_dates_cont .dhtmlxcalendar_line li.dhtmlxcalendar_cell_date_weekend {
@@ -231,11 +231,11 @@
   background-color: #f2f2f2;
 }
 .dhtmlxcalendar_material .dhtmlxcalendar_dates_cont .dhtmlxcalendar_line li.dhtmlxcalendar_cell_hover {
-  color: #a6a6a6;
+  color: #444;
   background-color: #ebebeb;
 }
 .dhtmlxcalendar_material .dhtmlxcalendar_dates_cont .dhtmlxcalendar_line li.dhtmlxcalendar_cell_date_hover {
-  color: #a6a6a6;
+  color: #444;
   background-color: #dcdcdc;
 }
 .dhtmlxcalendar_material .dhtmlxcalendar_dates_cont .dhtmlxcalendar_line li.dhtmlxcalendar_cell_weekend_hover {
@@ -254,7 +254,7 @@
   background-color: #ebebeb;
 }
 .dhtmlxcalendar_material .dhtmlxcalendar_dates_cont .dhtmlxcalendar_line li.dhtmlxcalendar_cell_month {
-  color: #404040;
+  color: #a6a6a6;
 }
 .dhtmlxcalendar_material .dhtmlxcalendar_dates_cont .dhtmlxcalendar_line li.dhtmlxcalendar_cell_month_weekend {
   color: #d43f3a;
@@ -299,7 +299,7 @@
   background-color: #f2f2f2;
 }
 .dhtmlxcalendar_material .dhtmlxcalendar_dates_cont .dhtmlxcalendar_line li.dhtmlxcalendar_cell_month_hover {
-  color: #404040;
+  color: #a6a6a6;
   background-color: #ebebeb;
 }
 .dhtmlxcalendar_material .dhtmlxcalendar_dates_cont .dhtmlxcalendar_line li.dhtmlxcalendar_cell_month_weekend_hover {
@@ -363,7 +363,7 @@
   top: 7px;
   width: 18px;
   height: 18px;
-  background-image: url("../imgs/dhxcalendar_material/dhxcalendar_clock.png");
+  background-image: url("../plugins/dhtmlxCalendar/imgs/dhxcalendar_material/dhxcalendar_clock.png");
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -453,7 +453,7 @@
   width: 100%;
   height: 9px;
   overflow: hidden;
-  background-image: url("../imgs/dhxcalendar_material/dhxcalendar_selector_top.gif");
+  background-image: url("../plugins/dhtmlxCalendar/imgs/dhxcalendar_material/dhxcalendar_selector_top.gif");
   background-position: top center;
   background-repeat: no-repeat;
 }
@@ -479,14 +479,14 @@
 }
 .dhtmlxcalendar_material div.dhtmlxcalendar_selector_obj table.dhtmlxcalendar_selector_table td.dhtmlxcalendar_selector_cell_left {
   border-width: 1px 0px 0px 1px;
-  background-image: url("../imgs/dhxcalendar_material/dhxcalendar_arrow_left.png");
+  background-image: url("../plugins/dhtmlxCalendar/imgs/dhxcalendar_material/dhxcalendar_arrow_left.png");
 }
 .dhtmlxcalendar_material div.dhtmlxcalendar_selector_obj table.dhtmlxcalendar_selector_table td.dhtmlxcalendar_selector_cell_left.dhtmlxcalendar_selector_cell_left_hover {
   background-color: #ebebeb;
 }
 .dhtmlxcalendar_material div.dhtmlxcalendar_selector_obj table.dhtmlxcalendar_selector_table td.dhtmlxcalendar_selector_cell_right {
   border-width: 1px 1px 0px 0px;
-  background-image: url("../imgs/dhxcalendar_material/dhxcalendar_arrow_right.png");
+  background-image: url("../plugins/dhtmlxCalendar/imgs/dhxcalendar_material/dhxcalendar_arrow_right.png");
 }
 .dhtmlxcalendar_material div.dhtmlxcalendar_selector_obj table.dhtmlxcalendar_selector_table td.dhtmlxcalendar_selector_cell_right.dhtmlxcalendar_selector_cell_right_hover {
   background-color: #ebebeb;
@@ -528,7 +528,7 @@
   user-select: none;
   font-size: 14px;
   font-family: Roboto, Arial, Helvetica;
-  color: #404040;
+  color: #a6a6a6;
   font-size: 0.9em;
 }
 .dhtmlxcalendar_material div.dhtmlxcalendar_selector_obj table.dhtmlxcalendar_selector_table td.dhtmlxcalendar_selector_cell_middle ul li.dhtmlxcalendar_selector_cell_active,
@@ -555,7 +555,7 @@
 .dhtmlxcalendar_material div.dhtmlxcalendar_selector_obj.dhtmlxcalendar_selector_minutes div.dhtmlxcalendar_selector_obj_arrow {
   top: auto;
   bottom: 1px;
-  background-image: url("../imgs/dhxcalendar_material/dhxcalendar_selector_bottom.gif");
+  background-image: url("../plugins/dhtmlxCalendar/imgs/dhxcalendar_material/dhxcalendar_selector_bottom.gif");
 }
 .dhtmlxcalendar_material div.dhtmlxcalendar_selector_obj.dhtmlxcalendar_selector_hours div.dhtmlxcalendar_selector_obj_arrow ul.dhtmlxcalendar_selector_line,
 .dhtmlxcalendar_material div.dhtmlxcalendar_selector_obj.dhtmlxcalendar_selector_hours2 div.dhtmlxcalendar_selector_obj_arrow ul.dhtmlxcalendar_selector_line,
