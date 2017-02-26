@@ -8,8 +8,14 @@
 		maxValue: 10
 	}
 
-	tq.plusButton.addEventListener( "click", increaseQuantity );
-	tq.minusButton.addEventListener( "click", decreaseQuantity );
+	tq.plusButton.addEventListener( "click", function( event ) {
+		event.preventDefault();
+		increaseQuantity();
+	});
+	tq.minusButton.addEventListener( "click", function( event ) {
+		event.preventDefault();
+		decreaseQuantity();
+	});
 
 	function increaseQuantity() {
 		var val = Number( tq.field.value );
@@ -19,6 +25,8 @@
 		} else {
 			alert( "티켓은 한 번에 " + tq.maxValue + "장까지 예매하실 수 없습니다." );
 		}
+
+		return false;
 	}
 
 	function decreaseQuantity() {
@@ -27,6 +35,8 @@
 		if ( val > 1 ) {
 			tq.field.value = val - 1;
 		}
+
+		return false;
 	}
 
 	// 메일 계정을 <select/> 로 선택할 수 있게
