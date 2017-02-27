@@ -19,11 +19,12 @@
 			setFloatingLabel( el );
 		});
 
-		function setFloatingLabel( $trigger ) {
+		function setFloatingLabel( trigger ) {
+			var $trigger = $( trigger );
 			var $field = $trigger.parent().find( ".ui-input" );
 			var toggler = "ui-input-placeholder--float";
 
-			$field.addEventListener( "change keydown keyup", function() {
+			$field.on( "change keydown keyup", function() {
 				toggleState( $field, $trigger );
 			});
 
@@ -46,7 +47,9 @@
 			initEvent( el );
 		});
 
-		function initEvent( $textBlock ) {
+		function initEvent( textBlock ) {
+			var $textBlock = $( textBlock );
+
 			$textBlock.find( ".read-more" ).on( "click", function( event ) {
 				event.preventDefault();
 				expandText( $textBlock );
