@@ -262,6 +262,7 @@
   font-size: .85rem;
 }
 .gallery__wrap {
+  margin: 10px -10px;
   white-space: nowrap;
 }
 .gallery__item {
@@ -285,7 +286,7 @@
   }
 }
 .gallery__item > figure {
-  margin: 0 15px 0 0;
+  margin: 0 10px;
 }
 .gallery__item__link {
   display: block;
