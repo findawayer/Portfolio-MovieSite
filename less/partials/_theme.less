@@ -3,78 +3,78 @@
 /* 헤더
  --------------------------------------------------*/
 .header {
-	background: @raisin-black;
-	box-shadow: 0 2px 5px rgba(0,0,0,.12);
-	width: 100%;
-	height: 60px;
-	position: relative;
-	z-index: 100;
+    background: @raisin-black;
+    box-shadow: 0 2px 5px rgba(0,0,0,.12);
+    width: 100%;
+    height: 60px;
+    position: relative;
+    z-index: 100;
 
-	&--fixed {
-		position: fixed;
-		top: 0;
-		left: 0;
-	}
+    &--fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
 
-	&__masthead {
-		float: left;
-		padding: 18px 0 0;
-		width: 100px;
-	}
-	&__menu {
-		float: left;
-	}
-	&__home {
-		float: left;
-		margin-left: .75rem;
-		line-height: 24px;
-		font-size: 1.1rem;
-	}
+    &__masthead {
+        float: left;
+        padding: 18px 0 0;
+        width: 100px;
+    }
+    &__menu {
+        float: left;
+    }
+    &__home {
+        float: left;
+        margin-left: .75rem;
+        line-height: 24px;
+        font-size: 1.1rem;
+    }
 
-	&__search {
-		margin-left: 100px;
-		padding: 12px 0 0;
-		position: relative;
+    &__search {
+        margin-left: 100px;
+        padding: 12px 0 0;
+        position: relative;
 
-		.ui-input {
-			width: 100%;
-		}
+        .ui-input {
+            width: 100%;
+        }
 
-		.input-placeholder {
-			color: @roman-silver;
-			position: absolute;
-			top: 12px;
-			left: 10px;
-			line-height: 36px;
-			cursor: text;
+        .input-placeholder {
+            color: @roman-silver;
+            position: absolute;
+            top: 12px;
+            left: 10px;
+            line-height: 36px;
+            cursor: text;
 
-			.input:focus + & {
-				display: none;
-			}
-		}
-	}
+            .input:focus + & {
+                display: none;
+            }
+        }
+    }
 }
 
 /* 메인 컨텐츠
  --------------------------------------------------*/
 .content {
-	padding: 80px 0 20px; /* 80px -> 헤더 60px + 안쪽 패딩 20px */
+    padding: 80px 0 20px; /* 80px -> 헤더 60px + 안쪽 패딩 20px */
 
-	&__heading {
-		margin: 0 0 1.5rem;
+    &__heading {
+        margin: 0 0 1.5rem;
 
-		h1 {
-			margin: 0;
-		}
+        h1 {
+            margin: 0;
+        }
 
-		p {
-			margin: 0;
-		}
-	}
+        p {
+            margin: 0;
+        }
+    }
 
-	&__section {
-		margin-bottom: 4rem;
-	}
+    &__section {
+        margin-bottom: 4rem;
+    }
 }
 
 
@@ -82,58 +82,38 @@
  --------------------------------------------------*/
 /* 영화목록 갤러리 */
 .gallery--movies {
-	min-height: 50vh;
+    .gallery__item {
+        &__rating {
+            color: @deep-lemon;
+        
+            &.unrated {
+                color: @roman-silver;
+            }
+        
+            i + span {
+                margin-left: .25em;
+            }
+        }
 
-	.gallery__item {
-		width: 220px;
-
-		&__link {
-			width: 100%;
-			height: 287px;
-			overflow: hidden;
-		}
-	}
-
-	@media (min-width: 480px) and (max-width: 699px) {
-		width: 440px;
-	}
-	@media (min-width: 700px) and (max-width: 919px) {
-		width: 660px;
-	}
-	@media (min-width: 920px) and (max-width: 1139px) {
-		width: 880px;
-	}
-	@media (min-width: 1140px) and (max-width: 1359px) {
-		width: 1100px;
-	}
-
-	.gallery__item__genre {
-		span {
-			background: @gunmetal;
-			border-radius: .5em;
-			color: @medium-gray;
-			margin: 0 .2em .2em 0;
-			padding: .15em .45em;
-			display: inline-block;
-			float: left;
-			font-size: .85rem;
-		}
-	}
+        &__release {
+            font-size: 13px;
+        }
+    }
 }
 
 .gallery__control {
-	.inline-fix();
+    .inline-fix();
 
-	button {
-		margin: 0 .25rem .25rem 0;
-		touch-action: manipulation;
+    button {
+        margin: 0 .25rem .25rem 0;
+        touch-action: manipulation;
 
-		&.selected {
-			background: @vivid-cerulean;
-			color: white;
-			touch-action: none;
-		}
-	}
+        &.selected {
+            background: @vivid-cerulean;
+            color: white;
+            touch-action: none;
+        }
+    }
 }
 
 /* 메인 컨텐츠 // 영화 상세정보
@@ -141,60 +121,60 @@
 
 /* 영화 기본정보 */
 .movie-detail {
-	&__primary {
-		.list-unstyled();
-		margin-bottom: 1rem;
-		float: left;
-	}
-	&__title {
-		margin: 0;
-	}
-	&__genre {
-		.list-inline();
-		font-size: 0;
+    &__primary {
+        .list-unstyled();
+        margin-bottom: 1rem;
+        float: left;
+    }
+    &__title {
+        margin: 0;
+    }
+    &__genre {
+        .list-inline();
+        font-size: 0;
 
-		> li {
-			.list-inline__item();
-			font-size: 1rem;
+        > li {
+            .list-inline__item();
+            font-size: 1rem;
 
-			+ li::before {
-				content: "|";
-				margin: 0 .5em;
-			}
-		}
-	}
-	&__rating {
-		.tip {
-			background: @onyx;
-			border-radius: .25em;
-			color: white;
-			padding: .2em .25em;
-		}
-	}
+            + li::before {
+                content: "|";
+                margin: 0 .5em;
+            }
+        }
+    }
+    &__rating {
+        .tip {
+            background: @onyx;
+            border-radius: .25em;
+            color: white;
+            padding: .2em .25em;
+        }
+    }
 
 
-	&__secondary {
-		.list-unstyled();
-		margin-bottom: 1rem;
-		float: right;
-		text-align: right;
-	}
+    &__secondary {
+        .list-unstyled();
+        margin-bottom: 1rem;
+        float: right;
+        text-align: right;
+    }
 
-	&__synopsis {
-		clear: both;
-	}
+    &__synopsis {
+        clear: both;
+    }
 }
 
 /* 좌석 찾기 */
 .seat__seek {
-	&__fieldset {
-		margin: 0 0 1rem;
+    &__fieldset {
+        margin: 0 0 1rem;
 
-		.ui-input {
-			box-sizing: border-box;
-			width: 100%;
-		}
-	}
+        .ui-input {
+            box-sizing: border-box;
+            width: 100%;
+        }
+    }
 }
 
 /* 감독, 출연진 */
@@ -203,164 +183,163 @@
 
 /* 관람후기 */
 .user-comments {
-	margin: 0 0 .5rem;
+    margin: 0 0 .5rem;
 }
 .leave-comment {
-	margin: 2rem 0;
+    margin: 2rem 0;
 
-	&__field {
-		height: 3.5em;
-		padding: .5em;
-		line-height: normal;
-	}
+    &__field {
+        height: 3.5em;
+        padding: .5em;
+        line-height: normal;
+    }
 }
 
 /* 메인 컨텐츠 // 영화 좌석예매
  --------------------------------------------------*/
 .order-preview {
-	.group();
+    .group();
 
-	&__thumb {
-		.image-link {
-			width: ~"calc(100% - 20px)";
-		}
-	}
+    &__thumb {
+        .image-link {
+            width: ~"calc(100% - 20px)";
+        }
+    }
 
-	&__info {
-	}
+    &__info {
+    }
 
-	&__quantity {
-		max-width: 15em;
-	}
+    &__quantity {
+        max-width: 15em;
+    }
 
-	&__total {
-		display: block;
-		margin: .5rem 0;
-		font-size: 1.375rem; // = h2
-	}
+    &__total {
+        display: block;
+        margin: .5rem 0;
+        font-size: 1.375rem; // = h2
+    }
 }
 
 .order-whereto {
-	> .group {
-		display: table;
-		width: 100%;
+    > .group {
+        display: table;
+        width: 100%;
 
-		> div {
-			display: table-cell;
-			vertical-align: middle;
-		}
-	}
+        > div {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
 
-	&__label {
-		margin: 1rem 0 0;
-	}
+    &__label {
+        margin: 1rem 0 0;
+    }
 
-	&__punctuation {
-		width: 1.5em;
-		text-align: center;
-	}
+    &__punctuation {
+        width: 1.5em;
+        text-align: center;
+    }
 
-	.ui-input {
-		width: 100%;
-	}
+    .ui-input {
+        width: 100%;
+    }
 }
 
 .order-whereto__field--phone1 {
-	width: 25%;
+    width: 25%;
 }
 
 .order-whereto__field--email2 {
-	width: 30%;
+    width: 30%;
 }
 
 .order-whereto__field--select {
-	padding-left: .5rem;
-	width: 8em;
+    padding-left: .5rem;
+    width: 8em;
 }
 
 .order-terms {
-	margin: 1rem 0;
+    margin: 1rem 0;
 }
 
 /* 푸터
  --------------------------------------------------*/
 .footer {
-	&__copyright {
-		text-align: center;
-	}
+    &__copyright {
+        text-align: center;
+    }
 
-	&__menu {
-		text-align: center;
+    &__menu {
+        text-align: center;
 
-		.list-inline__item {
-			& + .list-inline__item {
-				margin-left: 1rem;
-			}
-		}
-	}
+        .list-inline__item {
+            & + .list-inline__item {
+                margin-left: 1rem;
+            }
+        }
+    }
 
-	&__social {
-		margin: 1rem 0;
-		text-align: center;
+    &__social {
+        margin: 1rem 0;
+        text-align: center;
 
-		&__icon {
-			width: 32px;
-			height: 32px;
-			margin: 0 .5rem;
-		}
-	}
+        &__icon {
+            width: 32px;
+            height: 32px;
+            margin: 0 .5rem;
+        }
+    }
 }
 
 
 /* 사이드바
  --------------------------------------------------*/
 .sidebar {
-	background: @gunmetal;
-	box-shadow: 2px 0 5px rgba(0, 0, 0, .12);
-	box-sizing: border-box;
-	padding: 30px;
-	width: 60%;
-	max-width: 300px;
-	position: fixed;
-	top: 60px;
-	left: 0;
-	bottom: 0;
-	visibility: hidden; // prevent flickering
-	z-index: 200;
-	.hw-accel(-100%, 0, 0);
-	transition: visibility 0s linear .3s, transform .3s ease-out;
+    background: @gunmetal;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, .12);
+    box-sizing: border-box;
+    padding: 30px;
+    width: 300px;
+    overflow-y: auto;
+    position: fixed;
+    top: 60px;
+    left: -300px;
+    bottom: 0;
+    z-index: 200;
+    .hw-accel(0, 0, 0);
+    transition: all .3s ease-out;
+    transition-property: -webkit-transform, -ms-transform, transform;
+    -webkit-overflow-scrolling: touch;
 
-	&.open {
-		visibility: visible;
-		transform: translate3d(0, 0, 0);
-		transition: visibility 0s linear 0s, transform .3s ease-out;
-	}
+    &.open {
+        transform: translate3d(100%, 0, 0);
+    }
 
-	&__account {
-		.list-inline__item {
-			width: 50%;
-		}
-	}
+    &__account {
+        .list-inline__item {
+            width: 50%;
+        }
+    }
 
-	&__menuset {
-		margin: 40px 0;
+    &__menuset {
+        margin: 40px 0;
 
-		h2 {
-			color: @medium-gray;
-			margin: 0 0 1.5rem;
-			font-family: inherit;
-			font-size: 1rem;
-			font-weight: normal;
-		}
+        h2 {
+            color: @medium-gray;
+            margin: 0 0 1.5rem;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: normal;
+        }
 
-		li {
-			i + span {
-				margin-left: .75em;
-			}
+        li {
+            i + span {
+                margin-left: .75em;
+            }
 
-			& + li {
-				margin-top: 1.5rem;
-			}
-		}
-	}
+            & + li {
+                margin-top: 1.5rem;
+            }
+        }
+    }
 }
