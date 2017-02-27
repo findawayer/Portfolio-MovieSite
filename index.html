@@ -20,6 +20,16 @@
     <link rel="stylesheet" type="text/css" href="plugins/font-awesome/css/font-awesome.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="plugins/smoothTouchScroll/css/smoothTouchScroll.css">
+    
+    <!-- jQuery - Get it from Google API's -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- jQuery UI - contains only widget -->
+    <script src="plugins/smoothTouchScroll/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <!-- jQuery kinetic -->
+    <script src="plugins/smoothTouchScroll/js/jquery.kinetic.min.js"></script>
+    <!-- Smooth Touch Scroll -->
+    <script src="plugins/smoothTouchScroll/js/jquery.smoothTouchScroll.min.js"></script>
 
 </head>
 
@@ -49,45 +59,400 @@
     <!-- 컨텐츠 영역 -->
     <main id="content" class="content">
         <div class="container">
-
             <div class="content__heading">
-                <h1>상영중인 영화</h1>
-                <p>최신 영화정보를 신속하게 만나보세요. <a href="#">개봉 예정된 영화 보기</a></p>
+                <h1>최근 영화목록</h1>
+                <p>상영중인 영화, 개봉이 임박한 영화를 한눈에 찾아보세요.</p>
             </div>
 
-            <div class="gallery gallery--movies">
-                <div role="listbox" id="movieFilter" class="gallery__control">
-                    <button class="ui-input selected" data-filter="">모든 장르</button>
-                    <button class="ui-input">가족</button>
-                    <button class="ui-input">공포</button>
-                    <button class="ui-input">다큐멘터리</button>
-                    <button class="ui-input">드라마</button>
-                    <button class="ui-input">애니메이션</button>
-                    <button class="ui-input">액션</button>
-                    <button class="ui-input">어드벤처</button>
-                    <button class="ui-input">로맨스</button>
-                    <button class="ui-input">범죄</button>
-                    <button class="ui-input">스릴러</button>
-                    <button class="ui-input">스포츠</button>
-                    <button class="ui-input">역사</button>
-                    <button class="ui-input">전쟁</button>
-                    <button class="ui-input">코미디</button>
-                    <button class="ui-input">SF</button>
-                    <button class="ui-input" data-filter=".korean">국산영화</button>
-                    <button class="ui-input" data-filter=".international">해외영화</button>
-                </div>
-                <div id="movieGrid">
+            <section id="ongoingMovies" class="content__section">
+                <h2>상영중인 영화</h2>
+
+                <div id="ongoingMoviesGallery" class="gallery gallery--movies">
                     <ul class="gallery__wrap group">
-                        <li class="gallery__item scheduled korean">
+                        <li class="gallery__item ongoing">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_포켓몬스터.png" alt="포켓몬스터 더 무비 XY & Z 볼케니온: 기계왕국의 비밀">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">포켓몬스터 더 무비 XY &amp; Z 볼케니온: 기계왕국의 비밀</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">애니메이션</a>
+                                            <a href="#" class="tag genre">어드벤처</a>
+                                            <a href="#" class="tag genre">판타지</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 8.5</dd>
+                                        <dd class="gallery__item__release">2016년 12월 22일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item ongoing">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_에곤쉴레.png" alt="에곤 쉴레: 욕망이 그린 그림">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">에곤 쉴레: 욕망이 그린 그림</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">드라마</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 7.5</dd>
+                                        <dd class="gallery__item__release">2016년 12월 22일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item ongoing">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_씽.png" alt="씽">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">씽</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">뮤지컬</a>
+                                            <a href="#" class="tag genre">애니메이션</a>
+                                            <a href="#" class="tag genre">가족</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 8.5</dd>
+                                        <dd class="gallery__item__release">2016년 12월 21일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item ongoing">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_당신거기.png" alt="당신, 거기 있어줄래요">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">당신, 거기 있어줄래요</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">판타지</a>
+                                            <a href="#" class="tag genre">드라마</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 8.3</dd>
+                                        <dd class="gallery__item__release">2016년 12월 14일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item ongoing">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_나다니엘.png" alt="나, 다니엘 블레이크">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">나, 다니엘 블레이크</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">드라마</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 8.8</dd>
+                                        <dd class="gallery__item__release">2016년 12월 8일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item ongoing">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_라라랜드.png" alt="라라랜드">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">라라랜드</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">로맨스</a>
+                                            <a href="#" class="tag genre">코미디</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 8.2</dd>
+                                        <dd class="gallery__item__release">2016년 12월 07일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item ongoing">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_판도라.png" alt="판도라">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">판도라</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">드라마</a>
+                                            <a href="#" class="tag genre">가족</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 7.6</dd>
+                                        <dd class="gallery__item__release">2016년 12월 07일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item ongoing">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_로그원.png" alt="로그 원: 스타워즈 스토리">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">로그 원: 스타워즈 스토리</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">어드벤처</a>
+                                            <a href="#" class="tag genre">SF</a>
+                                            <a href="#" class="tag genre">액션</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 8.1</dd>
+                                        <dd class="gallery__item__release">2016년 12월 28일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="scheduledMovies" class="content__section">
+                <h2>개봉 예정된 영화</h2>
+
+                <div id="scheduledMoivesGallery" class="gallery gallery--movies">
+                    <ul class="gallery__wrap group">
+                        <li class="gallery__item ongoing">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_내어깨위.png" alt="내 어깨 위 고양이, 밥">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">내 어깨 위 고양이, 밥</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">드라마</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 9.1</dd>
+                                        <dd class="gallery__item__release">2017년 1월 4일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item ongoing">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_너의이름.png" alt="너의 이름은.">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">너의 이름은.</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">애니메이션</a>
+                                            <a href="#" class="tag genre">드라마</a>
+                                            <a href="#" class="tag genre">로맨스</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 9.1</dd>
+                                        <dd class="gallery__item__release">2017년 1월 4일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item ongoing">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_눈의여왕.png" alt="눈의 여왕3: 눈과 불의 마법대결">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">눈의 여왕3: 눈과 불의 마법대결</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">애니메이션</a>
+                                            <a href="#" class="tag genre">어드벤처</a>
+                                            <a href="#" class="tag genre">가족</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 9.2</dd>
+                                        <dd class="gallery__item__release">2017년 1월 4일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item ongoing">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_패신저스.png" alt="패신저스">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">패신저스</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">SF</a>
+                                            <a href="#" class="tag genre">로맨스</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 8.6</dd>
+                                        <dd class="gallery__item__release">2017년 1월 4일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_얼라이드.png" alt="얼라이드">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">얼라이드</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">스릴러</a>
+                                            <a href="#" class="tag genre">드라마</a>
+                                            <a href="#" class="tag genre">로맨스</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 8.8</dd>
+                                        <dd class="gallery__item__release">2017년 1월 11일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_어쌔신.png" alt="어쌔신 크리드">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">어쌔신 크리드</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">액션</a>
+                                            <a href="#" class="tag genre">어드벤처</a>
+                                            <a href="#" class="tag genre">SF</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 8.2</dd>
+                                        <dd class="gallery__item__release">2017년 1월 11일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_녹터널.png" alt="녹터널 애니멀스">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">녹터널 애니멀스</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">스릴러</a>
+                                            <a href="#" class="tag genre">드라마</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 8.7</dd>
+                                        <dd class="gallery__item__release">2017년 1월 11일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_네이비씰.png" alt="네이비씰">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">네이비씰</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">액션</a>
+                                            <a href="#" class="tag genre">전쟁</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 8.1</dd>
+                                        <dd class="gallery__item__release">2017년 1월 12일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_데이라이트.png" alt="데이라이트 엔드: 인류 멸망의 날">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">데이라이트 엔드: 인류 멸망의 날</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">액션</a>
+                                            <a href="#" class="tag genre">판타지</a>
+                                            <a href="#" class="tag genre">공포</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 9.0</dd>
+                                        <dd class="gallery__item__release">2017년 1월 12일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_뚜르.png" alt="뚜르: 내 생애 최고의 49일">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">뚜르: 내 생애 최고의 49일</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">다큐멘터리</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 9.3</dd>
+                                        <dd class="gallery__item__release">2017년 1월 12일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_모아나.png" alt="모아나">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">모아나</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">애니메이션</a>
+                                            <a href="#" class="tag genre">어드벤처</a>
+                                            <a href="#" class="tag genre">코미디</a>
+                                            <a href="#" class="tag genre">가족</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 9.0</dd>
+                                        <dd class="gallery__item__release">2017년 1월 12일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item">
+                            <figure>
+                                <a class="gallery__item__link" href="#">
+                                    <img class="gallery__item__image" src="img/thumbs/thumb_공조.png" alt="공조">
+                                </a>
+                                <figcaption class="gallery__item__caption">
+                                    <dl>
+                                        <dt class="gallery__item__title"><a href="#">공조</a></dt>
+                                        <dd class="gallery__item__genre group">
+                                            <a href="#" class="tag genre">액션</a>
+                                        </dd>
+                                        <dd class="gallery__item__rating">★ 8.0</dd>
+                                        <dd class="gallery__item__release">2017년 1월 18일 개봉</dd>
+                                    </dl>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="gallery__item">
                             <figure>
                                 <a class="gallery__item__link" href="#">
                                     <img class="gallery__item__image" src="img/thumbs/thumb_다른길.png" alt="다른 길이 있다">
                                 </a>
                                 <figcaption class="gallery__item__caption">
                                     <dl>
-                                        <dt class="gallery__item__title">다른 길이 있다</dt>
+                                        <dt class="gallery__item__title"><a href="#">다른 길이 있다</a></dt>
                                         <dd class="gallery__item__genre group">
-                                            <span class="genre">드라마</span>
+                                            <a href="#" class="tag genre">드라마</a>
                                         </dd>
                                         <dd class="gallery__item__rating">★ 8.1
                                         </dd>
@@ -96,374 +461,9 @@
                                 </figcaption>
                             </figure>
                         </li>
-                        <li class="gallery__item scheduled korean">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_공조.png" alt="공조">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">공조</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">액션</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 8.0</dd>
-                                        <dd class="gallery__item__release">2017년 1월 18일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item scheduled international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_네이비씰.png" alt="네이비씰">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">네이비씰</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">액션</span>
-                                            <span class="genre">전쟁</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 8.1</dd>
-                                        <dd class="gallery__item__release">2017년 1월 12일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item scheduled international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_데이라이트.png" alt="데이라이트 엔드: 인류 멸망의 날">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">데이라이트 엔드: 인류 멸망의 날</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">액션</span>
-                                            <span class="genre">판타지</span>
-                                            <span class="genre">공포</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 9.0</dd>
-                                        <dd class="gallery__item__release">2017년 1월 12일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item scheduled international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_뚜르.png" alt="뚜르: 내 생애 최고의 49일">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">뚜르: 내 생애 최고의 49일</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">다큐멘터리</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 9.3</dd>
-                                        <dd class="gallery__item__release">2017년 1월 12일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item scheduled international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_모아나.png" alt="모아나">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">모아나</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">애니메이션</span>
-                                            <span class="genre">어드벤처</span>
-                                            <span class="genre">코미디</span>
-                                            <span class="genre">가족</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 9.0</dd>
-                                        <dd class="gallery__item__release">2017년 1월 12일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item scheduled international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_얼라이드.png" alt="얼라이드">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">얼라이드</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">스릴러</span>
-                                            <span class="genre">드라마</span>
-                                            <span class="genre">로맨스</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 8.8</dd>
-                                        <dd class="gallery__item__release">2017년 1월 11일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item scheduled international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_어쌔신.png" alt="어쌔신 크리드">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">어쌔신 크리드</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">액션</span>
-                                            <span class="genre">어드벤처</span>
-                                            <span class="genre">SF</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 8.2</dd>
-                                        <dd class="gallery__item__release">2017년 1월 11일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item scheduled international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_녹터널.png" alt="녹터널 애니멀스">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">녹터널 애니멀스</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">스릴러</span>
-                                            <span class="genre">드라마</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 8.7</dd>
-                                        <dd class="gallery__item__release">2017년 1월 11일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item ongoing international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_내어깨위.png" alt="내 어깨 위 고양이, 밥">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">내 어깨 위 고양이, 밥</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">드라마</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 9.1</dd>
-                                        <dd class="gallery__item__release">2017년 1월 4일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item ongoing international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_너의이름.png" alt="너의 이름은.">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">너의 이름은.</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">애니메이션</span>
-                                            <span class="genre">드라마</span>
-                                            <span class="genre">로맨스</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 9.1</dd>
-                                        <dd class="gallery__item__release">2017년 1월 4일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item ongoing international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_눈의여왕.png" alt="눈의 여왕3: 눈과 불의 마법대결">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">눈의 여왕3: 눈과 불의 마법대결</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">애니메이션</span>
-                                            <span class="genre">어드벤처</span>
-                                            <span class="genre">가족</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 9.2</dd>
-                                        <dd class="gallery__item__release">2017년 1월 4일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item ongoing international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_패신저스.png" alt="패신저스">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">패신저스</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">SF</span>
-                                            <span class="genre">로맨스</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 8.6</dd>
-                                        <dd class="gallery__item__release">2017년 1월 4일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item ongoing international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_로그원.png" alt="로그 원: 스타워즈 스토리">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">로그 원: 스타워즈 스토리</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">어드벤처</span>
-                                            <span class="genre">SF</span>
-                                            <span class="genre">액션</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 8.1</dd>
-                                        <dd class="gallery__item__release">2016년 12월 28일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item ongoing international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_포켓몬스터.png" alt="포켓몬스터 더 무비 XY & Z 볼케니온: 기계왕국의 비밀">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">포켓몬스터 더 무비 XY &amp; Z 볼케니온: 기계왕국의 비밀</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">애니메이션</span>
-                                            <span class="genre">어드벤처</span>
-                                            <span class="genre">판타지</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 8.5</dd>
-                                        <dd class="gallery__item__release">2016년 12월 22일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item ongoing international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_에곤쉴레.png" alt="에곤 쉴레: 욕망이 그린 그림">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">에곤 쉴레: 욕망이 그린 그림</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">드라마</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 7.5</dd>
-                                        <dd class="gallery__item__release">2016년 12월 22일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item ongoing international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_씽.png" alt="씽">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">씽</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">뮤지컬</span>
-                                            <span class="genre">애니메이션</span>
-                                            <span class="genre">가족</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 8.5</dd>
-                                        <dd class="gallery__item__release">2016년 12월 21일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item ongoing korean">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_당신거기.png" alt="당신, 거기 있어줄래요">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">당신, 거기 있어줄래요</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">판타지</span>
-                                            <span class="genre">드라마</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 8.3</dd>
-                                        <dd class="gallery__item__release">2016년 12월 14일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item ongoing international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_나다니엘.png" alt="나, 다니엘 블레이크">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">나, 다니엘 블레이크</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">드라마</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 8.8</dd>
-                                        <dd class="gallery__item__release">2016년 12월 8일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item ongoing international">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_라라랜드.png" alt="라라랜드">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">라라랜드</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">로맨스</span>
-                                            <span class="genre">코미디</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 8.2</dd>
-                                        <dd class="gallery__item__release">2016년 12월 07일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item ongoing korean">
-                            <figure>
-                                <a class="gallery__item__link" href="#">
-                                    <img class="gallery__item__image" src="img/thumbs/thumb_판도라.png" alt="판도라">
-                                </a>
-                                <figcaption class="gallery__item__caption">
-                                    <dl>
-                                        <dt class="gallery__item__title">판도라</dt>
-                                        <dd class="gallery__item__genre group">
-                                            <span class="genre">드라마</span>
-                                            <span class="genre">가족</span>
-                                        </dd>
-                                        <dd class="gallery__item__rating">★ 7.6</dd>
-                                        <dd class="gallery__item__release">2016년 12월 07일 개봉</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
                     </ul>
                 </div>
-            </div>
+            </section>
 
         </div><!-- /container fluid -->
     </main>
@@ -532,11 +532,11 @@
             <ul role="menu" class="list-unstyled">
                 <li role="presentation"><a role="menuitem" href="#">
                     <i class="fa fa-play-circle" aria-hidden="true"></i>
-                    <span>상영중인 영화</span>
+                    <span>최근 영화목록</span>
                 </a></li>
                 <li role="presentation"><a role="menuitem" href="#">
                     <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                    <span>개봉예정 영화</span>
+                    <span>개봉 일정표</span>
                 </a></li>
                 <li role="presentation"><a role="menuitem" href="#">
                     <i class="fa fa-search" aria-hidden="true"></i>
@@ -563,8 +563,7 @@
         </nav>
     </aside>
 
-    <!-- JavaScripts -->
-    <script type="text/javascript" src="plugins/isotope/dist/isotope.pkgd.min.js"></script>
+    <!-- JS -->
     <script type="text/javascript" src="js/common.min.js"></script>
     <script type="text/javascript" src="js/index.min.js"></script>
 
