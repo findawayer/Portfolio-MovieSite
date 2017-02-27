@@ -1,65 +1,62 @@
-;( function( document ){
+!function( window, document, $, undefined ){
 
 	/* 슬라이드아웃 메뉴 활성화 */
-	(function slideMenuToggle() {
-		var hamburger = document.getElementById( "sidemenuTrigger" );
-		var sidemenu = document.getElementById( "sidemenu" );
+	!function slideMenuToggle() {
+		var $hamburger = $( "#sidemenuTrigger" );
+		var $sidemenu = $( "#sidemenu" );
 
-		hamburger.addEventListener( "click", function(e) {
-			e.preventDefault();
-			sidemenu.classList.toggle( "open" );
+		$hamburger.on( "click", function(event) {
+			event.preventDefault();
+			$sidemenu.toggleClass( "open" );
 		});
-	})();
+	}();
 
 	/* 플로팅 인풋 플레이스홀더 */
-	(function floatingLabels( targets ) {
-		if ( !targets.length > 0 ) return;
+	!function floatingLabels( $targets ) {
+		if ( !$targets.length > 0 ) return;
 
-		Array.from( targets ).forEach( function( e ) {
-			setFloatingLabel( e );
+		$targets.each( function( i, el ) {
+			setFloatingLabel( el );
 		});
 
-		function setFloatingLabel( el ) {
-			var field = el.parentElement.querySelector( ".ui-input" );
+		function setFloatingLabel( $trigger ) {
+			var $field = $trigger.parent().find( ".ui-input" );
 			var toggler = "ui-input-placeholder--float";
 
-			["change", "keydown", "keyup"].forEach( function( event ) {
-				field.addEventListener( event, function() {
-					toggleState( field, el );
-				});
+			$field.addEventListener( "change keydown keyup", function() {
+				toggleState( $field, $trigger );
 			});
 
-			function toggleState( input, label ) {
-				if ( input.value != "" ) {
-					label.classList.add( toggler );
+			function toggleState( $input, $label ) {
+				if ( $input.val() ) {
+					$label.addClass( toggler );
 				} else {
-					label.classList.remove( toggler );
+					$label.removeClass( toggler );
 				}
 			}
 		}
-	})( document.getElementsByClassName( "ui-input-placeholder" ) );
+	}( $( ".ui-input-placeholder" ) );
 
 
 	/* 더 읽기 */
-	(function collapsibleText( targets ) {
-		if ( !targets.length > 0 ) return;
+	!function collapsibleText( $targets ) {
+		if ( !$targets.length > 0 ) return;
 
-		for ( var i = 0; i < targets.length; ++i ) {
-			initEvent( targets[i] );
-		}
+		$targets.each( function( i, el ) {
+			initEvent( el );
+		});
 
-		function initEvent( textBlock ) {
-			var readMore = textBlock.querySelector( ".read-more" );
-			readMore.addEventListener( "click", function( event ) {
+		function initEvent( $textBlock ) {
+			$textBlock.find( ".read-more" ).on( "click", function( event ) {
 				event.preventDefault();
-				expandText( textBlock );
+				expandText( $textBlock );
 			});
 		}
 
 		function expandText( textBlock ) {
-			textBlock.className = textBlock.className + " is-expanded";
+			textBlock.addClass( "is-expanded" );
 		}
 
-	})( document.getElementsByClassName( "text-collapsed" ) );
+	}( $( ".text-collapsed" ) );
 
-})( document );
+}( window, document, jQuery );
