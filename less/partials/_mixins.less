@@ -12,8 +12,8 @@
 .group {
     &:after {
         clear: both;
-        content: "";
         display: table;
+        content: "";
     }
 }
 
@@ -66,6 +66,7 @@
 .list-inline {
     &:extend( .list-unstyled );
 }
+
 .list-inline__item {
     display: inline-block;
 }
@@ -123,6 +124,11 @@
     line-height: 18px;
     box-sizing: border-box;
     touch-action: manipulation;
+
+    &--fill {
+        background: @vivid-cerulean;
+        border: 0;
+    }
 }
 
 // 인풋
@@ -193,16 +199,29 @@
     cursor: pointer;
 }
 
+// 사운드리더 전용
+.sr-only {
+    border: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    clip: rect(0,0,0,0);
+}
+
 // 햄버거 아이콘
 .hamburger {
     .ui-input();
+    background: transparent;
     display: inline-block;
     width: 24px;
     height: 24px;
     position: relative;
     touch-action: manipulation;
 
-    > span {
+    &__stripe {
         display: inline-block;
         width: 20px;
         height: 2px;
@@ -210,22 +229,23 @@
         position: absolute;
         left: 2px;
 
-        &:first-child {
+        &.hamburger__stripe--first {
             top: 4px;
         }
 
-        &:nth-child(2) {
+        &.hamburger__stripe--second {
             top: 11px;
         }
 
-        &:nth-child(3) {
+        &.hamburger__stripe--third {
             top: 18px;
         }
     }
-}
-.hamburger--inverse {
-    > span {
-        background: white;
+
+    &--dark {
+        .hamburger__stripe {
+            background: white;
+        }
     }
 }
 
@@ -322,63 +342,74 @@
 // 태그 (장르 표시 등)
 .tag {
     background: @gunmetal;
-    border-radius: .5em;
+    border-radius: .25em;
     color: @medium-gray;
-    margin: 0 .2em .2em 0;
-    padding: .15em .45em;
     display: inline-block;
-    float: left;
-    font-size: .85rem;
+    padding: .15em .45em;
+    font-size: @base-font-size * 0.85;
 }
 
 // 갤러리
 .gallery {
-    &__wrap {
-        &:extend( .list-unstyled );
-        margin: 10px -10px;
-        white-space: nowrap;
-    }
+    .group();
+    margin: 10px -10px;
+    white-space: nowrap;
 
     &__item {
         display: inline-block;
+        margin: 0 10px;
         vertical-align: top;
         white-space: normal;
-
-        @media only screen {
-            @media (max-width: 480px) {
-                width: 50%;
-            }
-            @media (min-width: 481px) and (max-width: 800px) {
-                width: 33.33%;
-            }
-            @media (min-width: 801px) {
-                width: 200px;
-            }
-        }
-
-        > figure {
-            margin: 0 10px;
-        }
 
         &__link {
             display: block;
         }
 
         &__image {
-            .image--fluid;
+            .image--fluid();
             vertical-align: middle;
         }
         
         &__caption {
             margin-top: 10px;
+        }
 
-            dt {
-                line-height: 1.4;
-                word-break: keep-all;
+        &__title {
+            margin: 0 0 .25em;
+            line-height: 1.4;
+            font-size: @base-font-size;
+            word-break: keep-all;
+        }
+
+        &__genre {
+            .group();
+            .list-unstyled();
+
+            > li {
+                display: inline-block;
+                margin: 0 0 .2em;
             }
-            dd {
-                margin-top: .25em;
+        }
+
+        &__rating,
+        &__release {
+            margin: 0;
+        }
+
+        &__rating {
+            color: @deep-lemon;
+
+            &.unrated {
+                color: @roman-silver;
             }
+        
+            i + span {
+                margin-left: .25em;
+            }
+        }
+
+        &__release {
+            font-size: 13px;
         }
     }
 }
@@ -386,6 +417,44 @@
 // 더 읽기
 .read-more {
     color: @vivid-cerulean;
+}
+
+// 오버레이 레이어
+.overlay {
+    background: rgba(0, 0, 0, .92);
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+}
+
+.modal {
+    position: absolute;
+
+    &__close {
+        background: url("../img/icons/close.svg") no-repeat;
+        background-size: 48px 48px;
+        border: 0;
+        color: transparent;
+        display: block;
+        width: 48px;
+        height: 48px;
+        overflow: hidden;
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        text-indent: 100%;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+    }
+}
+
+body.modal-is-on {
+    overflow: hidden;
 }
 
 
