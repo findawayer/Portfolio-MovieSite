@@ -25,32 +25,32 @@
     <meta name="theme-color" content="#1f2124">
     <!-- Icon Font -->
     <link rel="stylesheet" type="text/css" href="plugins/font-awesome/css/font-awesome.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <!-- Plugins CSS -->
+    <!-- CSS: Plugins -->
+    <link rel="stylesheet" type="text/css" href="plugins/smoothTouchScroll/css/smoothTouchScroll.css">
     <link rel="stylesheet" type="text/css" href="css/dhtmlxcalendar_material_dark.css">
-    <!-- jQuery -->
-    <script src="plugins/jQuery/jquery.1.10.2.min.js"></script>
+    <!-- CSS: Custom -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
 
 <body>
 
     <!-- 헤더 -->
-    <header id="header" class="header header--fixed group">
+    <header role="banner" id="header" class="header header--fixed group">
         <div class="container">
             
-            <div role="banner" class="header__masthead group">
-                <button id="sidemenuTrigger" class="header__menu hamburger hamburger--inverse">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            <div class="header__masthead group">
+                <button role="button" id="sidemenuTrigger" class="header__menu hamburger hamburger--dark">
+                    <span class="hamburger__stripe hamburger__stripe--first"></span>
+                    <span class="hamburger__stripe hamburger__stripe--second"></span>
+                    <span class="hamburger__stripe hamburger__stripe--third"></span>
+                    <span class="sr-only">메뉴</span>
                 </button>
                 <a role="button" class="header__home" href="#">무빙</a>
             </div>
 
             <form id="searchBox" name="searchBox" class="header__search input-group">
-                <input type="search" id="search" class="ui-input">
+                <input type="search" id="search" name="search" class="ui-input">
                 <label for="search" class="input-placeholder">검색어를 입력하세요.</label>
             </form>
 
@@ -70,23 +70,25 @@
             <!-- 영화 기본정보 -->
             <div class="content__section movie-detail">
 
-                <figure class="movie-detail__thumb">
-                    <img class="image--fluid" src="img/details/detail_로그원.jpg" alt="로그 원: 스타워즈 스토리">
+                <figure role="group" class="movie-detail__thumb">
+                    <!-- 대표 이미지 -->
+                    <img class="image--fluid" src="img/details/detail_로그원.jpg" alt="로그 원: 스타워즈 스토리" aria-describedby="movieDescription">
+
+                    <!-- 트레일러 트리거 -->
+                    <button id="showTrailer" class="ui-button ui-button--fill" data-youtube="F1239ZePXfM">트레일러 보기</button>
                 </figure>
                 
-                <ul class="movie-detail__primary">
-                    <li>
-                        <ul class="movie-detail__genre">
-                            <li>어드벤처</li>
-                            <li>판타지</li>
-                            <li>SF</li>
-                        </ul>
-                    </li>
-                    <li class="movie-detail__duration">134분</li>
-                </ul>
+                <div class="movie-detail__primary">
+                    <ul class="movie-detail__genre">
+                        <li>어드벤처</li>
+                        <li>판타지</li>
+                        <li>SF</li>
+                    </ul>
+                    <div class="movie-detail__duration">134분</div>
+                </div>
 
-                <ul class="movie-detail__secondary">
-                    <li class="movie-detail__score">
+                <div class="movie-detail__secondary">
+                    <div class="movie-detail__score">
                         <ul role="presentation" class="five-star-rating">
                             <li class="is-active"></li>
                             <li class="is-active"></li>
@@ -95,11 +97,11 @@
                             <li></li>
                         </ul>
                         <span class="numbered-rating">8.1</span>
-                    </li>
-                    <li class="movie-detail__rating"><span class="tip">12세 이상 관람가</span></li>
-                </ul>
+                    </div>
+                    <div class="movie-detail__rating"><span class="tip">12세 이상 관람가</span></div>
+                </div>
 
-                <div class="movie-detail__synopsis">
+                <div id="movieDescription" class="movie-detail__synopsis">
                     <p>“이번에 성공 못하면, 될 때까지, 승리할 때까지 싸울 겁니다.”</p>
 
                     <p>희망이 사라진 세상. 반군 소속의 ‘진’ (펠리시티 존스)은 적의 최종병기 ‘데스 스타’ 개발에 아버지가 참여했단 과거 때문에 데스 스타의 약점을 캐내는 임무를 떠맡게 된다.</p>
@@ -117,9 +119,11 @@
                 <form id="theaterSeeker" class="theater-seeker__form">
                     <div class="seat__seek__fieldset col-holder">
                         <div class="col-8">
+                            <label for="theaterSeekerDate" class="sr-only">날짜:</label>
                             <input type="text" id="theaterSeekerDate" name="theaterSeekerDate" value="2017년 1월 1일 (일)" class="ui-input ui-select">
                         </div>
                         <div class="col-4">
+                            <label for="theaterSeekerHour" class="sr-only">시간:</label>
                             <select id="theaterSeekerHour" name="theaterSeekerHour" class="ui-input ui-select">
                                 <option value="오전 0:30">오전 0:00</option>
                                 <option value="오전 0:30">오전 0:30</option>
@@ -187,14 +191,16 @@
 
                 <form id="selectSeat" class="seat__select">
                     <p>‘서울 영등포구 영등포본동’ 영화관 검색결과</p>
-                    <div class="seat__select__input">
-                        <input type="radio" id="cinema00001" name="selectSeat" class="input-radio" checked>
-                        <label for="cinema00001">롯데시네마 영등포점 (잔여 44석)</label>
-                    </div>
+                    <div role="radiogroup">
+                        <div class="seat__select__input">
+                            <input type="radio" id="cinema00001" name="selectSeat" class="input-radio" checked>
+                            <label for="cinema00001">롯데시네마 영등포점 (잔여 44석)</label>
+                        </div>
 
-                    <div class="seat__select__input">
-                        <input type="radio" id="cinema00002" name="selectSeat" class="input-radio">
-                        <label for="cinema00002">CGV 영등포 (잔여 27석)</label>
+                        <div class="seat__select__input">
+                            <input type="radio" id="cinema00002" name="selectSeat" class="input-radio">
+                            <label for="cinema00002">CGV 영등포 (잔여 27석)</label>
+                        </div>
                     </div>
 
                     <div class="ui-button-wrap">
@@ -204,157 +210,141 @@
             </div>
 
             <!-- 감독 & 출연진 -->
-            <div class="content__section">
+            <div class="content__section cast-info">
                 <h2>감독 &amp; 출연진</h2>
-                <div class="gallery">
-                    <ul class="gallery__wrap col-holder">
-                        <li class="gallery__item col-3">
-                            <figure>
-                                <a href="#">
-                                    <img class="image--fluid" src="img/casts/cast00.png" alt="가렛 에드워즈">
-                                </a>
-                                <figcaption>
-                                    <dl class="text--wrap">
-                                        <dt>감독</dt>
-                                        <dd>가렛 에드워즈</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item col-3">
-                            <figure>
-                                <a href="#">
-                                    <img class="image--fluid" src="img/casts/cast01.png" alt="펠리시티 존스">
-                                </a>
-                                <figcaption>
-                                    <dl class="text--wrap">
-                                        <dt>‘진’<dt>
-                                        <dd>펠리시티 존스</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item col-3">
-                            <figure>
-                                <a href="#">
-                                   <img class="image--fluid" src="img/casts/cast02.png" alt="디에고 루나">
-                                </a>
-                                <figcaption>
-                                    <dl class="text--wrap">
-                                        <dt>‘카시안’</dt>
-                                        <dd>디에고 루나</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item col-3">
-                            <figure>
-                                <a href="#">
-                                    <img class="image--fluid" src="img/casts/cast03.png" alt="견자단">
-                                </a>
-                                <figcaption>
-                                    <dl class="text--wrap">
-                                        <dt>‘치루트’</dt>
-                                        <dd>견자단</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item col-3 clear">
-                            <figure>
-                                <a href="#">
-                                    <img class="image--fluid" src="img/casts/cast04.png" alt="강문">
-                                </a>
-                                <figcaption>
-                                    <dl class="text--wrap">
-                                        <dt>‘베이즈’</dt>
-                                        <dd>강문</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item col-3">
-                            <figure>
-                                <a href="#">
-                                    <img class="image--fluid" src="img/casts/cast05.png" alt="포레스트 휘태커">
-                                </a>
-                                <figcaption>
-                                    <dl class="text--wrap">
-                                        <dt>‘쏘우’</dt>
-                                        <dd>포레스트 휘태커</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item col-3">
-                            <figure>
-                                <a href="#">
-                                    <img class="image--fluid" src="img/casts/cast06.png" alt="매즈 미켈슨">
-                                </a>
-                                <figcaption>
-                                    <dl class="text--wrap">
-                                        <dt>‘겔런’</dt>
-                                        <dd>매즈 미켈슨</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="gallery__item col-3">
-                            <figure>
-                                <a href="#">
-                                    <img class="image--fluid" src="img/casts/cast07.png" alt="리즈 아메드">
-                                </a>
-                                <figcaption>
-                                    <dl class="text--wrap">
-                                        <dt>‘보디’</dt>
-                                        <dd>리즈 아메드</dd>
-                                    </dl>
-                                </figcaption>
-                            </figure>
-                        </li>
-                    </ul>
+                <div class="gallery touch-scrollable">
+                    <figure role="group" class="gallery__item">
+                        <a href="#" title="가렛 에드워즈">
+                            <img class="image--fluid" src="img/casts/cast00.png" alt="가렛 에드워즈">
+                        </a>
+                        <figcaption>
+                            <dl class="text--wrap">
+                                <dt>감독</dt>
+                                <dd>가렛 에드워즈</dd>
+                            </dl>
+                        </figcaption>
+                    </figure>
+                    <figure role="group" class="gallery__item">
+                        <a href="#" title="펠리시티 존스">
+                            <img class="image--fluid" src="img/casts/cast01.png" alt="펠리시티 존스">
+                        </a>
+                        <figcaption>
+                            <dl class="text--wrap">
+                                <dt>‘진’<dt>
+                                <dd>펠리시티 존스</dd>
+                            </dl>
+                        </figcaption>
+                    </figure>
+                    <figure role="group" class="gallery__item">
+                        <a href="#" title="디에고 루나">
+                           <img class="image--fluid" src="img/casts/cast02.png" alt="디에고 루나">
+                        </a>
+                        <figcaption>
+                            <dl class="text--wrap">
+                                <dt>‘카시안’</dt>
+                                <dd>디에고 루나</dd>
+                            </dl>
+                        </figcaption>
+                    </figure>
+                    <figure role="group" class="gallery__item">
+                        <a href="#" title="견자단">
+                            <img class="image--fluid" src="img/casts/cast03.png" alt="견자단">
+                        </a>
+                        <figcaption>
+                            <dl class="text--wrap">
+                                <dt>‘치루트’</dt>
+                                <dd>견자단</dd>
+                            </dl>
+                        </figcaption>
+                    </figure>
+                    <figure role="group" class="gallery__item">
+                        <a href="#" title="강문">
+                            <img class="image--fluid" src="img/casts/cast04.png" alt="강문">
+                        </a>
+                        <figcaption>
+                            <dl class="text--wrap">
+                                <dt>‘베이즈’</dt>
+                                <dd>강문</dd>
+                            </dl>
+                        </figcaption>
+                    </figure>
+                    <figure role="group" class="gallery__item">
+                        <a href="#" title="포레스트 휘태커">
+                            <img class="image--fluid" src="img/casts/cast05.png" alt="포레스트 휘태커">
+                        </a>
+                        <figcaption>
+                            <dl class="text--wrap">
+                                <dt>‘쏘우’</dt>
+                                <dd>포레스트 휘태커</dd>
+                            </dl>
+                        </figcaption>
+                    </figure>
+                    <figure role="group" class="gallery__item">
+                        <a href="#" title="매즈 미켈슨">
+                            <img class="image--fluid" src="img/casts/cast06.png" alt="매즈 미켈슨">
+                        </a>
+                        <figcaption>
+                            <dl class="text--wrap">
+                                <dt>‘겔런’</dt>
+                                <dd>매즈 미켈슨</dd>
+                            </dl>
+                        </figcaption>
+                    </figure>
+                    <figure role="group" class="gallery__item">
+                        <a href="#" title="리즈 아메드">
+                            <img class="image--fluid" src="img/casts/cast07.png" alt="리즈 아메드">
+                        </a>
+                        <figcaption>
+                            <dl class="text--wrap">
+                                <dt>‘보디’</dt>
+                                <dd>리즈 아메드</dd>
+                            </dl>
+                        </figcaption>
+                    </figure>
                 </div>
             </div>
 
             <!-- 통계기록 -->
-            <div class="content__section">
+            <div class="content__section statistics">
                 <h2>통계기록</h2>
-                <dl class="graph col-holder">
-                    <dt class="graph__child col-2">국내</dt>
-                    <dd class="graph__child col-4">
-                        <span class="graph__track">
-                            <span class="graph__thumb" style="width: 40%;">&nbsp;</span>
+                <ul class="col-holder list-unstyled">
+                    <li class="graph">
+                        <strong class="graph__child col-2">국내</strong>
+                        <span role="presentation" class="graph__child col-4">
+                            <span class="graph__track">
+                                <span class="graph__thumb" title="40%" style="width: 40%;">&nbsp;</span>
+                            </span>
                         </span>
-                    </dd>
-                    <dd class="graph_child graph__caption col-6">892만명 관람</dd>
-                </dl>
-                <dl class="graph col-holder">
-                    <dt class="graph__child col-2">전세계</dt>
-                    <dd class="graph__child col-4">
-                        <span class="graph__track">
-                            <span class="graph__thumb" style="width: 80%;">&nbsp;</span>
+                        <span class="graph_child graph__caption col-6">892만명 관람</span>
+                    </li>
+                    <li class="graph">
+                        <strong class="graph__child col-2">전세계</strong>
+                        <span role="presentation" class="graph__child col-4">
+                            <span class="graph__track">
+                                <span class="graph__thumb" title="80%" style="width: 80%;">&nbsp;</span>
+                            </span>
                         </span>
-                    </dd>
-                    <dd class="graph_child graph__caption col-6">2억 8710만명 관람</dd>
-                </dl>
-                <dl class="graph col-holder">
-                    <dt class="graph__child col-2">흥행수익</dt>
-                    <dd class="graph__child col-4">
-                        <span class="graph__track">
-                            <span class="graph__thumb" style="width: 70%;">&nbsp;</span>
+                        <span class="graph_child graph__caption col-6">2억 8710만명 관람</span>
+                    </li>
+                    <li class="graph">
+                        <strong class="graph__child col-2">흥행수익</strong>
+                        <span role="presentation" class="graph__child col-4">
+                            <span class="graph__track">
+                                <span class="graph__thumb" title="70%" style="width: 70%;">&nbsp;</span>
+                            </span>
                         </span>
-                    </dd>
-                    <dd class="graph_child graph__caption col-6">1억 5510만 달러 수익 (추정)</dd>
-                </dl>
+                        <span class="graph_child graph__caption col-6">1억 5510만 달러 수익 (추정)</span>
+                    </li>
+                </ul>
                 <p>2017년 1월 2일 기준, WorldMovieFoundation 제공</p>
             </div>
 
             <!-- 관람후기 -->
-            <div class="content__section">
+            <div class="content__section user-comments">
                 <h2>관람후기</h2>
-                <dl class="user-comments">
-                    <dt>
-                        <span class="user-comments__name">c155035ji</span>&nbsp;
+                <div class="user-comment">
+                    <div class="user-comment__head">
+                        <strong class="user-comment__name">c155035ji</strong>&nbsp;
                         <ul role="presentation" class="five-star-rating">
                             <li class="is-active"></li>
                             <li class="is-active"></li>
@@ -368,12 +358,12 @@
                             <li></li>
                         </ul>
                         <span class="numbered-rating">3</span>
-                    </dt>
-                    <dd>재밌었던거 같긴한데 별로 영화볼기분이아니었음 ㅈㅅ</dd>
-                </dl>
-                <dl class="user-comments">
-                    <dt>
-                        <span class="user-comments__name">손민수</span>&nbsp;
+                    </div>
+                    <p class="user-comment__body">재밌었던거 같긴한데 별로 영화볼기분이아니었음 ㅈㅅ</p>
+                </div>
+                <div class="user-comment">
+                    <div class="user-comment__head">
+                        <strong class="user-comment__name">손민수</strong>&nbsp;
                         <ul role="presentation" class="five-star-rating">
                             <li class="is-active"></li>
                             <li class="is-active"></li>
@@ -387,12 +377,12 @@
                             <li></li>
                         </ul>
                         <span class="numbered-rating">9</span>
-                    </dt>
-                    <dd>&nbsp;</dd>
-                </dl>
-                <dl class="user-comments">
-                    <dt>
-                        <span class="user-comments__name">이름없음</span>&nbsp;
+                    </div>
+                    <p class="user-comment__body">&nbsp;</p>
+                </div>
+                <div class="user-comment">
+                    <div class="user-comment__head">
+                        <strong class="user-comment__name">이름없음</strong>&nbsp;
                         <ul role="presentation" class="five-star-rating">
                             <li class="is-active"></li>
                             <li class="is-active"></li>
@@ -406,12 +396,12 @@
                             <li class="is-active"></li>
                         </ul>
                         <span class="numbered-rating">10</span>
-                    </dt>
-                    <dd>믿고보는 시리즈</dd>
-                </dl>
-                <dl class="user-comments">
-                    <dt>
-                        <span class="user-comments__name">허환</span>&nbsp;
+                    </div>
+                    <p class="user-comment__body">믿고보는 시리즈</p>
+                </div>
+                <div class="user-comment">
+                    <div class="user-comment__head">
+                        <strong class="user-comment__name">허환</strong>&nbsp;
                         <ul role="presentation" class="five-star-rating">
                             <li class="is-active"></li>
                             <li class="is-active"></li>
@@ -425,13 +415,13 @@
                             <li></li>
                         </ul>
                         <span class="numbered-rating">8</span>
-                    </dt>
-                    <dd class="text-collapsed">친구말만 듣고 전편 하나도 안 본 상태로 덜컥 가서 봤는데 기대이상으로 꿀잼이었습니다. 외국영화 잘 안보는 편인데 정말 오랜만에<span class="ellipsis">…</span> <a class="read-more" href="#">더 읽기</a><span class="is-collapsed">재밌게 봤습니다. 다음 편이 벌써부터 기다려집니다!</span></dd>
-                </dl>
+                    </div>
+                    <p class="user-comment__body text-collapsed">친구말만 듣고 전편 하나도 안 본 상태로 덜컥 가서 봤는데 기대이상으로 꿀잼이었습니다. 외국영화 잘 안보는 편인데 정말 오랜만에<span class="ellipsis">…</span> <a class="read-more" href="#">더 읽기</a><span class="is-collapsed">재밌게 봤습니다. 다음 편이 벌써부터 기다려집니다!</span></p>
+                </div>
                 <div class="leave-comment">
                     <p class="leave-comment__prompt"><strong>로그 원: 스타워즈 스토리</strong>에 대해 코멘트를 남겨주세요.</p>
                     <div class="leave-comment__myaccount">
-                        <span class="user-comments__name">내 닉네임</span>&nbsp;
+                        <strong id="myNickname" class="user-comment__name">내 닉네임</strong>&nbsp;
                         <ul role="presentation" id="myRatingStars" class="five-star-rating dynamic">
                         </ul>
                         <span id="myRatingNumber" class="numbered-rating">0</span>
@@ -447,86 +437,74 @@
             <div class="content__section">
                 <h2>추천하는 영화</h2>
 
-                <ul class="gallery__wrap col-holder">
-                    <li class="gallery__item col-4">
-                        <figure>
-                            <a class="gallery__item__link" href="#">
-                                <img class="gallery__item__image" src="img/movies/movie_스타워즈_깨어난포스.jpg" alt="스타워즈: 깨어난 포스">
-                            </a>
-                            <figcaption class="gallery__item__caption">스타워즈: 깨어난 포스</figcaption>
-                        </figure>
-                    </li>
-                    <li class="gallery__item col-4">
-                        <figure>
-                            <a class="gallery__item__link" href="#">
-                                <img class="gallery__item__image" src="img/movies/movie_몬스터즈.jpg" alt="몬스터즈">
-                            </a>
-                            <figcaption class="gallery__item__caption">몬스터즈</figcaption>
-                        </figure>
-                    </li>
-                    <li class="gallery__item col-4">
-                        <figure>
-                            <a class="gallery__item__link" href="#">
-                                <img class="gallery__item__image" src="img/movies/movie_아바타.jpg" alt="아바타">
-                            </a>
-                            <figcaption class="gallery__item__caption">아바타</figcaption>
-                        </figure>
-                    </li>
-                </ul>
+                <div class="col-holder">
+                    <figure role="group" class="col-4">
+                        <a href="#" title="스타워즈: 깨어난 포스">
+                            <img class="image--fluid" src="img/movies/movie_스타워즈_깨어난포스.jpg" alt="스타워즈: 깨어난 포스">
+                        </a>
+                        <figcaption>스타워즈: 깨어난 포스</figcaption>
+                    </figure>
+                    <figure role="group" class="col-4">
+                        <a href="#" title="몬스터즈">
+                            <img class="image--fluid" src="img/movies/movie_몬스터즈.jpg" alt="몬스터즈">
+                        </a>
+                        <figcaption>몬스터즈</figcaption>
+                    </figure>
+                    <figure role="group" class="col-4">
+                        <a href="#" title="아바타">
+                            <img class="image--fluid" src="img/movies/movie_아바타.jpg" alt="아바타">
+                        </a>
+                        <figcaption>아바타</figcaption>
+                    </figure>
+                </div>
             </div>
 
         </div>
 
-        <!-- 트레일러 -->
-        <div>
-            <!-- <iframe width="480" height="282" src="https://www.youtube.com/embed/F1239ZePXfM?&theme=dark&color=white&autoplay=1&autohide=1&modestbranding=1&fs=0&showinfo=0&rel=0&iv_load_policy=3" frameborder="0"></iframe> -->
-        </div>
-
     </main>
 
-    <!-- 푸터 -->
     <footer id="footer" class="footer">
         <div class="container">
 
             <div class="footer__copyright">Moving Inc., all rights reserved.</div>
 
-            <nav class="footer__nav">
+            <nav role="navigation" class="footer__nav">
 
                 <ul class="footer__menu list-inline">
                     <li class="list-inline__item">
-                        <a href="#">사이트맵</a>
+                        <a href="#" title="사이트맵">사이트맵</a>
                     </li>
                     <li class="list-inline__item">
-                        <a href="#">정책</a>
+                        <a href="#" title="정책">정책</a>
                     </li>
                     <li class="list-inline__item">
-                        <a href="#">저작권</a>
+                        <a href="#" title="저작권">저작권</a>
                     </li>
                     <li class="list-inline__item">
-                        <a href="#">이용안내</a>
+                        <a href="#" title="이용안내">이용안내</a>
                     </li>
                     <li class="list-inline__item">
-                        <a href="#">문의하기</a>
+                        <a href="#" title="문의하기">문의하기</a>
                     </li>
                     <li class="list-inline__item">
-                        <a href="#">데스크탑 버전</a>
+                        <a href="#" title="데스크탑 버전">데스크탑 버전</a>
                     </li>
                 </ul>
 
                 <ul class="footer__social list-inline">
                     <li class="list-inline__item">
-                        <a href="#">
-                            <img class="footer__social__icon" src="img/icons/social-facebook.svg" alt="facebook">
+                        <a href="#" title="무빙: 페이스북">
+                            <img class="footer__social__icon" src="img/icons/social-facebook.svg" alt="무빙: 페이스북">
                         </a>
                     </li>
                     <li class="list-inline__item">
-                        <a href="#">
-                            <img class="footer__social__icon" src="img/icons/social-twitter.svg" alt="twitter">
+                        <a href="#" title="무빙: 트위터">
+                            <img class="footer__social__icon" src="img/icons/social-twitter.svg" alt="무빙: 트위터">
                         </a>
                     </li>
                     <li class="list-inline__item">
-                        <a href="#">
-                            <img class="footer__social__icon" src="img/icons/social-naverblog.svg" alt="naverblog">
+                        <a href="#" title="무빙: 네이버 블로그">
+                            <img class="footer__social__icon" src="img/icons/social-naverblog.svg" alt="무빙: 네이버 블로그">
                         </a>
                     </li>
                 </ul>
@@ -537,23 +515,23 @@
     </footer>
 
     <!-- 슬라이드아웃 메뉴 -->
-    <aside id="sidemenu" class="sidebar">
+    <aside role="complementary" id="sidemenu" class="sidebar">
         <div class="sidebar__account">
             <ul role="menu" class="list-inline inline-fix">
                 <li role="presentation" class="list-inline__item"><a role="menuitem" class="login" href="#">로그인</a></li>
                 <li role="presentation" class="list-inline__item"><a role="menuitem" class="signup" href="#">계정 만들기</a></li>
             </ul>
         </div>
-        <nav class="sidebar__menuset">
+        <nav role="navigation" class="sidebar__menuset">
             <h2>영화 탐색하기</h2>
             <ul role="menu" class="list-unstyled">
                 <li role="presentation"><a role="menuitem" href="#">
                     <i class="fa fa-play-circle" aria-hidden="true"></i>
-                    <span>상영중인 영화</span>
+                    <span>최근 영화목록</span>
                 </a></li>
                 <li role="presentation"><a role="menuitem" href="#">
                     <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                    <span>개봉예정 영화</span>
+                    <span>개봉 일정표</span>
                 </a></li>
                 <li role="presentation"><a role="menuitem" href="#">
                     <i class="fa fa-search" aria-hidden="true"></i>
@@ -561,7 +539,7 @@
                 </a></li>
             </ul>
         </nav>
-        <nav class="sidebar__menuset">
+        <nav role="navigation" class="sidebar__menuset">
             <h2>추가 메뉴</h2>
             <ul role="menu" class="list-unstyled">
                 <li role="presentation"><a role="menuitem" href="#">
@@ -580,9 +558,28 @@
         </nav>
     </aside>
 
-    <!-- JavaScripts -->
+    <!-- 트레일러 -->
+    <aside role="complementary" id="blackout" class="overlay">
+        <div id="trailerModal" class="modal">
+            <div id="trailer"></div><!-- YouTube 플레이어로 대체되는 부분 -->
+        </div>
+        <button id="hideTrailer" class="modal__close">닫기</button>
+    </aside>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <!-- jQuery UI - only widget part -->
+    <script src="plugins/smoothTouchScroll/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <!-- jQuery kinetic -->
+    <script src="plugins/smoothTouchScroll/js/jquery.kinetic.min.js"></script>
+    <!-- Smooth Touch Scroll -->
+    <script src="plugins/smoothTouchScroll/js/jquery.smoothTouchScroll.min.js"></script>
+    <!-- JavaScript: Plugins -->
     <script type="text/javascript" src="plugins/five-star-rating/js/src/rating.js"></script>
     <script type="text/javascript" src="plugins/dhtmlxCalendar/dhtmlxcalendar.js"></script>
+    <!-- YouTube API -->
+    <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+    <!-- JavaScript: Custom scripts -->
     <script type="text/javascript" src="js/common.min.js"></script>
     <script type="text/javascript" src="js/movie.min.js"></script>
 

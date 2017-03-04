@@ -25,30 +25,29 @@
     <meta name="theme-color" content="#1f2124">
     <!-- Icon Font -->
     <link rel="stylesheet" type="text/css" href="plugins/font-awesome/css/font-awesome.css">
-    <!-- Custom CSS -->
+    <!-- CSS: Custom -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <!-- jQuery -->
-    <script src="plugins/jQuery/jquery.1.10.2.min.js"></script>
 
 </head>
 
 <body>
 
     <!-- 헤더 -->
-    <header id="header" class="header header--fixed group">
+    <header role="banner" id="header" class="header header--fixed group">
         <div class="container">
             
-            <div role="banner" class="header__masthead group">
-                <button id="sidemenuTrigger" class="header__menu hamburger hamburger--inverse">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            <div class="header__masthead group">
+                <button role="button" id="sidemenuTrigger" class="header__menu hamburger hamburger--dark">
+                    <span class="hamburger__stripe hamburger__stripe--first"></span>
+                    <span class="hamburger__stripe hamburger__stripe--second"></span>
+                    <span class="hamburger__stripe hamburger__stripe--third"></span>
+                    <span class="sr-only">메뉴</span>
                 </button>
                 <a role="button" class="header__home" href="#">무빙</a>
             </div>
 
             <form id="searchBox" name="searchBox" class="header__search input-group">
-                <input type="search" id="search" class="ui-input">
+                <input type="search" id="search" name="search" class="ui-input">
                 <label for="search" class="input-placeholder">검색어를 입력하세요.</label>
             </form>
 
@@ -155,43 +154,43 @@
 
             <div class="footer__copyright">Moving Inc., all rights reserved.</div>
 
-            <nav class="footer__nav">
+            <nav role="navigation" class="footer__nav">
 
                 <ul class="footer__menu list-inline">
                     <li class="list-inline__item">
-                        <a href="#">사이트맵</a>
+                        <a href="#" title="사이트맵">사이트맵</a>
                     </li>
                     <li class="list-inline__item">
-                        <a href="#">정책</a>
+                        <a href="#" title="정책">정책</a>
                     </li>
                     <li class="list-inline__item">
-                        <a href="#">저작권</a>
+                        <a href="#" title="저작권">저작권</a>
                     </li>
                     <li class="list-inline__item">
-                        <a href="#">이용안내</a>
+                        <a href="#" title="이용안내">이용안내</a>
                     </li>
                     <li class="list-inline__item">
-                        <a href="#">문의하기</a>
+                        <a href="#" title="문의하기">문의하기</a>
                     </li>
                     <li class="list-inline__item">
-                        <a href="#">데스크탑 버전</a>
+                        <a href="#" title="데스크탑 버전">데스크탑 버전</a>
                     </li>
                 </ul>
 
                 <ul class="footer__social list-inline">
                     <li class="list-inline__item">
-                        <a href="#">
-                            <img class="footer__social__icon" src="img/icons/social-facebook.svg" alt="facebook">
+                        <a href="#" title="무빙: 페이스북">
+                            <img class="footer__social__icon" src="img/icons/social-facebook.svg" alt="무빙: 페이스북">
                         </a>
                     </li>
                     <li class="list-inline__item">
-                        <a href="#">
-                            <img class="footer__social__icon" src="img/icons/social-twitter.svg" alt="twitter">
+                        <a href="#" title="무빙: 트위터">
+                            <img class="footer__social__icon" src="img/icons/social-twitter.svg" alt="무빙: 트위터">
                         </a>
                     </li>
                     <li class="list-inline__item">
-                        <a href="#">
-                            <img class="footer__social__icon" src="img/icons/social-naverblog.svg" alt="naverblog">
+                        <a href="#" title="무빙: 네이버 블로그">
+                            <img class="footer__social__icon" src="img/icons/social-naverblog.svg" alt="무빙: 네이버 블로그">
                         </a>
                     </li>
                 </ul>
@@ -202,23 +201,23 @@
     </footer>
 
     <!-- 슬라이드아웃 메뉴 -->
-    <aside id="sidemenu" class="sidebar">
+    <aside role="complementary" id="sidemenu" class="sidebar">
         <div class="sidebar__account">
             <ul role="menu" class="list-inline inline-fix">
                 <li role="presentation" class="list-inline__item"><a role="menuitem" class="login" href="#">로그인</a></li>
                 <li role="presentation" class="list-inline__item"><a role="menuitem" class="signup" href="#">계정 만들기</a></li>
             </ul>
         </div>
-        <nav class="sidebar__menuset">
+        <nav role="navigation" class="sidebar__menuset">
             <h2>영화 탐색하기</h2>
             <ul role="menu" class="list-unstyled">
                 <li role="presentation"><a role="menuitem" href="#">
                     <i class="fa fa-play-circle" aria-hidden="true"></i>
-                    <span>상영중인 영화</span>
+                    <span>최근 영화목록</span>
                 </a></li>
                 <li role="presentation"><a role="menuitem" href="#">
                     <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                    <span>개봉예정 영화</span>
+                    <span>개봉 일정표</span>
                 </a></li>
                 <li role="presentation"><a role="menuitem" href="#">
                     <i class="fa fa-search" aria-hidden="true"></i>
@@ -226,7 +225,7 @@
                 </a></li>
             </ul>
         </nav>
-        <nav class="sidebar__menuset">
+        <nav role="navigation" class="sidebar__menuset">
             <h2>추가 메뉴</h2>
             <ul role="menu" class="list-unstyled">
                 <li role="presentation"><a role="menuitem" href="#">
@@ -245,9 +244,11 @@
         </nav>
     </aside>
 
-    <!-- JavaScripts -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <!-- JavaScript: Custom scripts -->
     <script type="text/javascript" src="js/common.min.js"></script>
-    <script type="text/javascript" src="js/order.min.js"></script>
+    <script type="text/javascript" src="js/order.js"></script>
 
 </body>
 
