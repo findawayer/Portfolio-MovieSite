@@ -185,7 +185,7 @@
 
 // 셀렉트
 .ui-select {
-    background: @gunmetal url(../img/icons/down-chevron.svg) no-repeat right 15px center;
+    background: @gunmetal url("../img/icons/down-chevron.svg") no-repeat right 15px center;
     background-size: 10px 10px;
 
     &:disabled {
@@ -277,23 +277,28 @@
 
 
 // 별점
+@star-size: 16px;
+
+.star {
+    background: url("../img/icons/stars.svg") no-repeat 0 0;
+    background-size: @star-size*2 @star-size;
+    display: inline-block;
+    width: @star-size;
+    height: @star-size;
+    overflow: hidden;
+    position: relative;
+    top: 1px;
+    text-indent: 100%;
+
+    &--active {
+        background-position: -@star-size 0;
+    }
+}
+
 .five-star-rating {
     display: inline;
     &:extend( .list-unstyled );
     .inline-fix;
-
-    li {
-        display: inline;
-
-        &:before {
-            content: "★";
-            color: @outer-space;
-        }
-
-        &.is-active:before {
-            color: @deep-lemon;
-        }
-    }
     
     &.dynamic {
         cursor: pointer;
@@ -305,6 +310,7 @@
         }
     }
 }
+
 .numbered-rating {
     color: @deep-lemon;
     margin-left: .5em;

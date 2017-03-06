@@ -91,12 +91,12 @@
 
                 <div class="movie-detail__secondary">
                     <div class="movie-detail__score">
-                        <ul role="presentation" class="five-star-rating">
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li></li>
+                        <ul role="presentation" class="five-star-rating" aria-hidden="true">
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star"></li>
                         </ul>
                         <span class="numbered-rating">8.1</span>
                     </div>
@@ -348,16 +348,16 @@
                     <div class="user-comment__head">
                         <strong class="user-comment__name">c155035ji</strong>&nbsp;
                         <ul role="presentation" class="five-star-rating">
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star"></li>
+                            <li class="star"></li>
+                            <li class="star"></li>
+                            <li class="star"></li>
+                            <li class="star"></li>
+                            <li class="star"></li>
+                            <li class="star"></li>
                         </ul>
                         <span class="numbered-rating">3</span>
                     </div>
@@ -366,17 +366,17 @@
                 <div class="user-comment">
                     <div class="user-comment__head">
                         <strong class="user-comment__name">손민수</strong>&nbsp;
-                        <ul role="presentation" class="five-star-rating">
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li></li>
-                            <li></li>
+                        <ul role="presentation" class="five-star-rating" aria-hidden="true">
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star"></li>
+                            <li class="star"></li>
                         </ul>
                         <span class="numbered-rating">9</span>
                     </div>
@@ -385,17 +385,17 @@
                 <div class="user-comment">
                     <div class="user-comment__head">
                         <strong class="user-comment__name">이름없음</strong>&nbsp;
-                        <ul role="presentation" class="five-star-rating">
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
+                        <ul role="presentation" class="five-star-rating" aria-hidden="true">
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
                         </ul>
                         <span class="numbered-rating">10</span>
                     </div>
@@ -404,17 +404,17 @@
                 <div class="user-comment">
                     <div class="user-comment__head">
                         <strong class="user-comment__name">허환</strong>&nbsp;
-                        <ul role="presentation" class="five-star-rating">
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li class="is-active"></li>
-                            <li></li>
-                            <li></li>
+                        <ul role="presentation" class="five-star-rating" aria-hidden="true">
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star star--active"></li>
+                            <li class="star"></li>
+                            <li class="star"></li>
                         </ul>
                         <span class="numbered-rating">8</span>
                     </div>
@@ -424,7 +424,7 @@
                     <p class="leave-comment__prompt"><strong>로그 원: 스타워즈 스토리</strong>에 대해 코멘트를 남겨주세요.</p>
                     <div class="leave-comment__myaccount">
                         <strong id="myNickname" class="user-comment__name">내 닉네임</strong>&nbsp;
-                        <ul role="presentation" id="myRatingStars" class="five-star-rating dynamic">
+                        <ul role="presentation" id="myRatingStars" class="five-star-rating dynamic" aria-hidden="true">
                         </ul>
                         <span id="myRatingNumber" class="numbered-rating">0</span>
                     </div>
@@ -571,7 +571,7 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <!-- JavaScript: Plugins -->
-    <script type="text/javascript" src="plugins/five-star-rating/js/src/rating.js"></script>
+    <script type="text/javascript" src="plugins/five-star-rating/js/src/rating.min.js"></script>
     <script type="text/javascript" src="plugins/dhtmlxCalendar/dhtmlxcalendar.js"></script>
     <!-- YouTube API -->
     <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>

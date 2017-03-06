@@ -42,9 +42,9 @@
 
       for (var i = 0; i < maxRating; i++) {
         var star = document.createElement('li');
-        star.classList.add('c-rating__item');
+        star.classList.add('c-rating__item', 'star');
         star.setAttribute('data-index', i);
-        if (i < currentRating) { star.classList.add('is-active'); }
+        if (i < currentRating) { star.classList.add('star--active'); }
         el.appendChild(star);
         stars.push(star);
         attachStarEvents(star);
@@ -90,9 +90,9 @@
         if (alreadyRated) return;
         iterate(stars, function(item, index) {
           if (index <= parseInt(star.getAttribute('data-index'))) {
-            item.classList.add('is-active');
+            item.classList.add('star--active');
           } else {
-            item.classList.remove('is-active');
+            item.classList.remove('star--active');
           }
         });
       });
@@ -145,9 +145,9 @@
 
       iterate(stars, function(star, index) {
         if (index < currentRating) {
-          star.classList.add('is-active');
+          star.classList.add('star--active');
         } else {
-          star.classList.remove('is-active');
+          star.classList.remove('star--active');
         }
       });
 
