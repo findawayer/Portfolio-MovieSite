@@ -73,10 +73,10 @@
 
 // 터치로 횡스크롤
 .touch-scrollable {
-    overflow-x: auto;
+    overflow-x: hidden; // JS로 스크롤. common.js 참조
 
-    &::webkit-scrollbar {
-        display: none;
+    &__inner {
+        position: relative;
     }
 }
 
@@ -90,6 +90,9 @@
 .image--fluid {
     width: 100%;
     height: auto;
+}
+.image--nodrag {
+    pointer-events: none;
 }
 
 // 텍스트 랩핑

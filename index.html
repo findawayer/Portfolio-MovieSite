@@ -17,7 +17,8 @@
     <meta name="keywords" content="영화, 엔터테인먼트, 트렌드" />
     <meta name="author" content="Seoul Arts Center" />
     <meta name="robots" content="index, follow" />
-    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="telephone=no" /><!-- remove telephone call trigger -->
+    <meta name="msapplication-tap-highlight" content="no" /><!-- remove tap highlighting in WinPhones -->
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32" />
@@ -41,7 +42,7 @@
         <div class="container">
             
             <div class="header__masthead group">
-                <button role="button" id="sidemenuTrigger" class="header__menu hamburger hamburger--dark">
+                <button role="button" id="sidemenuTrigger" class="header__menu hamburger hamburger--dark" aria-haspopup="true" aria-expanded="false">
                     <span class="hamburger__stripe hamburger__stripe--first"></span>
                     <span class="hamburger__stripe hamburger__stripe--second"></span>
                     <span class="hamburger__stripe hamburger__stripe--third"></span>
@@ -75,7 +76,7 @@
                 <div id="ongoingMoviesGallery" class="gallery touch-scrollable">
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_포켓몬스터.jpg" srcset="img/thumbs/thumb_포켓몬스터.jpg 1x, img/thumbs/thumb_포켓몬스터@2x.jpg 2x, img/thumbs/thumb_포켓몬스터@3x.jpg 3x"  alt="포켓몬스터 더 무비 XY & Z 볼케니온: 기계왕국의 비밀" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_포켓몬스터.jpg" srcset="img/thumbs/thumb_포켓몬스터.jpg 1x, img/thumbs/thumb_포켓몬스터@2x.jpg 2x, img/thumbs/thumb_포켓몬스터@3x.jpg 3x"  alt="포켓몬스터 더 무비 XY & Z 볼케니온: 기계왕국의 비밀" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="포켓몬스터 더 무비 XY & Z 볼케니온: 기계왕국의 비밀">포켓몬스터 더 무비 XY &amp; Z 볼케니온: 기계왕국의 비밀</a></h3>
@@ -90,7 +91,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_에곤쉴레.jpg" srcset="img/thumbs/thumb_에곤쉴레.jpg 1x, img/thumbs/thumb_에곤쉴레@2x.jpg 2x, img/thumbs/thumb_에곤쉴레@3x.jpg 3x"  alt="에곤 쉴레: 욕망이 그린 그림" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_에곤쉴레.jpg" srcset="img/thumbs/thumb_에곤쉴레.jpg 1x, img/thumbs/thumb_에곤쉴레@2x.jpg 2x, img/thumbs/thumb_에곤쉴레@3x.jpg 3x"  alt="에곤 쉴레: 욕망이 그린 그림" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="에곤 쉴레: 욕망이 그린 그림">에곤 쉴레: 욕망이 그린 그림</a></h3>
@@ -103,7 +104,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_씽.jpg" srcset="img/thumbs/thumb_씽.jpg 1x, img/thumbs/thumb_씽@2x.jpg 2x, img/thumbs/thumb_씽@3x.jpg 3x"  alt="씽" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_씽.jpg" srcset="img/thumbs/thumb_씽.jpg 1x, img/thumbs/thumb_씽@2x.jpg 2x, img/thumbs/thumb_씽@3x.jpg 3x"  alt="씽" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="씽">씽</a></h3>
@@ -118,7 +119,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_당신거기.jpg" srcset="img/thumbs/thumb_당신거기.jpg 1x, img/thumbs/thumb_당신거기@2x.jpg 2x, img/thumbs/thumb_당신거기@3x.jpg 3x"  alt="당신, 거기 있어줄래요" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_당신거기.jpg" srcset="img/thumbs/thumb_당신거기.jpg 1x, img/thumbs/thumb_당신거기@2x.jpg 2x, img/thumbs/thumb_당신거기@3x.jpg 3x"  alt="당신, 거기 있어줄래요" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="당신, 거기 있어줄래요">당신, 거기 있어줄래요</a></h3>
@@ -132,7 +133,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_나다니엘.jpg" srcset="img/thumbs/thumb_나다니엘.jpg 1x, img/thumbs/thumb_나다니엘@2x.jpg 2x, img/thumbs/thumb_나다니엘@3x.jpg 3x"  alt="나, 다니엘 블레이크" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_나다니엘.jpg" srcset="img/thumbs/thumb_나다니엘.jpg 1x, img/thumbs/thumb_나다니엘@2x.jpg 2x, img/thumbs/thumb_나다니엘@3x.jpg 3x"  alt="나, 다니엘 블레이크" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="나, 다니엘 블레이크">나, 다니엘 블레이크</a></h3>
@@ -145,7 +146,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_라라랜드.jpg" srcset="img/thumbs/thumb_라라랜드.jpg 1x, img/thumbs/thumb_라라랜드@2x.jpg 2x, img/thumbs/thumb_라라랜드@3x.jpg 3x"  alt="라라랜드" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_라라랜드.jpg" srcset="img/thumbs/thumb_라라랜드.jpg 1x, img/thumbs/thumb_라라랜드@2x.jpg 2x, img/thumbs/thumb_라라랜드@3x.jpg 3x"  alt="라라랜드" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="라라랜드">라라랜드</a></h3>
@@ -159,7 +160,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_판도라.jpg" srcset="img/thumbs/thumb_판도라.jpg 1x, img/thumbs/thumb_판도라@2x.jpg 2x, img/thumbs/thumb_판도라@3x.jpg 3x"  alt="판도라" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_판도라.jpg" srcset="img/thumbs/thumb_판도라.jpg 1x, img/thumbs/thumb_판도라@2x.jpg 2x, img/thumbs/thumb_판도라@3x.jpg 3x"  alt="판도라" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="판도라">판도라</a></h3>
@@ -173,7 +174,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_로그원.jpg" srcset="img/thumbs/thumb_로그원.jpg 1x, img/thumbs/thumb_로그원@2x.jpg 2x, img/thumbs/thumb_로그원@3x.jpg 3x"  alt="로그 원: 스타워즈 스토리" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_로그원.jpg" srcset="img/thumbs/thumb_로그원.jpg 1x, img/thumbs/thumb_로그원@2x.jpg 2x, img/thumbs/thumb_로그원@3x.jpg 3x"  alt="로그 원: 스타워즈 스토리" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="로그 원: 스타워즈 스토리">로그 원: 스타워즈 스토리</a></h3>
@@ -196,7 +197,7 @@
                 <div id="scheduledMoivesGallery" class="gallery touch-scrollable">
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_내어깨위.jpg" srcset="img/thumbs/thumb_내어깨위.jpg 1x, img/thumbs/thumb_내어깨위@2x.jpg 2x, img/thumbs/thumb_내어깨위@3x.jpg 3x"  alt="내 어깨 위 고양이, 밥" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_내어깨위.jpg" srcset="img/thumbs/thumb_내어깨위.jpg 1x, img/thumbs/thumb_내어깨위@2x.jpg 2x, img/thumbs/thumb_내어깨위@3x.jpg 3x"  alt="내 어깨 위 고양이, 밥" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="내 어깨 위 고양이, 밥">내 어깨 위 고양이, 밥</a></h3>
@@ -209,7 +210,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_너의이름.jpg" srcset="img/thumbs/thumb_너의이름.jpg 1x, img/thumbs/thumb_너의이름@2x.jpg 2x, img/thumbs/thumb_너의이름@3x.jpg 3x"  alt="너의 이름은." />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_너의이름.jpg" srcset="img/thumbs/thumb_너의이름.jpg 1x, img/thumbs/thumb_너의이름@2x.jpg 2x, img/thumbs/thumb_너의이름@3x.jpg 3x"  alt="너의 이름은." />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="너의 이름은.">너의 이름은.</a></h3>
@@ -224,7 +225,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_눈의여왕.jpg" srcset="img/thumbs/thumb_눈의여왕.jpg 1x, img/thumbs/thumb_눈의여왕@2x.jpg 2x, img/thumbs/thumb_눈의여왕@3x.jpg 3x"  alt="눈의 여왕3: 눈과 불의 마법대결" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_눈의여왕.jpg" srcset="img/thumbs/thumb_눈의여왕.jpg 1x, img/thumbs/thumb_눈의여왕@2x.jpg 2x, img/thumbs/thumb_눈의여왕@3x.jpg 3x"  alt="눈의 여왕3: 눈과 불의 마법대결" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="눈의 여왕3: 눈과 불의 마법대결">눈의 여왕3: 눈과 불의 마법대결</a></h3>
@@ -239,7 +240,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_패신저스.jpg" srcset="img/thumbs/thumb_패신저스.jpg 1x, img/thumbs/thumb_패신저스@2x.jpg 2x, img/thumbs/thumb_패신저스@3x.jpg 3x"  alt="패신저스" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_패신저스.jpg" srcset="img/thumbs/thumb_패신저스.jpg 1x, img/thumbs/thumb_패신저스@2x.jpg 2x, img/thumbs/thumb_패신저스@3x.jpg 3x"  alt="패신저스" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="패신저스">패신저스</a></h3>
@@ -253,7 +254,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_얼라이드.jpg" srcset="img/thumbs/thumb_얼라이드.jpg 1x, img/thumbs/thumb_얼라이드@2x.jpg 2x, img/thumbs/thumb_얼라이드@3x.jpg 3x"  alt="얼라이드" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_얼라이드.jpg" srcset="img/thumbs/thumb_얼라이드.jpg 1x, img/thumbs/thumb_얼라이드@2x.jpg 2x, img/thumbs/thumb_얼라이드@3x.jpg 3x"  alt="얼라이드" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="얼라이드">얼라이드</a></h3>
@@ -268,7 +269,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_어쌔신.jpg" srcset="img/thumbs/thumb_어쌔신.jpg 1x, img/thumbs/thumb_어쌔신@2x.jpg 2x, img/thumbs/thumb_어쌔신@3x.jpg 3x"  alt="어쌔신 크리드" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_어쌔신.jpg" srcset="img/thumbs/thumb_어쌔신.jpg 1x, img/thumbs/thumb_어쌔신@2x.jpg 2x, img/thumbs/thumb_어쌔신@3x.jpg 3x"  alt="어쌔신 크리드" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="어쌔신 크리드">어쌔신 크리드</a></h3>
@@ -283,7 +284,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_녹터널.jpg" srcset="img/thumbs/thumb_녹터널.jpg 1x, img/thumbs/thumb_녹터널@2x.jpg 2x, img/thumbs/thumb_녹터널@3x.jpg 3x"  alt="녹터널 애니멀스" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_녹터널.jpg" srcset="img/thumbs/thumb_녹터널.jpg 1x, img/thumbs/thumb_녹터널@2x.jpg 2x, img/thumbs/thumb_녹터널@3x.jpg 3x"  alt="녹터널 애니멀스" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="녹터널 애니멀스">녹터널 애니멀스</a></h3>
@@ -297,7 +298,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_네이비씰.jpg" srcset="img/thumbs/thumb_네이비씰.jpg 1x, img/thumbs/thumb_네이비씰@2x.jpg 2x, img/thumbs/thumb_네이비씰@3x.jpg 3x"  alt="네이비씰" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_네이비씰.jpg" srcset="img/thumbs/thumb_네이비씰.jpg 1x, img/thumbs/thumb_네이비씰@2x.jpg 2x, img/thumbs/thumb_네이비씰@3x.jpg 3x"  alt="네이비씰" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="네이비씰">네이비씰</a></h3>
@@ -311,7 +312,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_데이라이트.jpg" srcset="img/thumbs/thumb_데이라이트.jpg 1x, img/thumbs/thumb_데이라이트@2x.jpg 2x, img/thumbs/thumb_데이라이트@3x.jpg 3x"  alt="데이라이트 엔드: 인류 멸망의 날" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_데이라이트.jpg" srcset="img/thumbs/thumb_데이라이트.jpg 1x, img/thumbs/thumb_데이라이트@2x.jpg 2x, img/thumbs/thumb_데이라이트@3x.jpg 3x"  alt="데이라이트 엔드: 인류 멸망의 날" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="데이라이트 엔드: 인류 멸망의 날">데이라이트 엔드: 인류 멸망의 날</a></h3>
@@ -326,7 +327,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_뚜르.jpg" srcset="img/thumbs/thumb_뚜르.jpg 1x, img/thumbs/thumb_뚜르@2x.jpg 2x, img/thumbs/thumb_뚜르@3x.jpg 3x"  alt="뚜르: 내 생애 최고의 49일" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_뚜르.jpg" srcset="img/thumbs/thumb_뚜르.jpg 1x, img/thumbs/thumb_뚜르@2x.jpg 2x, img/thumbs/thumb_뚜르@3x.jpg 3x"  alt="뚜르: 내 생애 최고의 49일" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="뚜르: 내 생애 최고의 49일">뚜르: 내 생애 최고의 49일</a></h3>
@@ -339,7 +340,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_모아나.jpg" srcset="img/thumbs/thumb_모아나.jpg 1x, img/thumbs/thumb_모아나@2x.jpg 2x, img/thumbs/thumb_모아나@3x.jpg 3x"  alt="모아나" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_모아나.jpg" srcset="img/thumbs/thumb_모아나.jpg 1x, img/thumbs/thumb_모아나@2x.jpg 2x, img/thumbs/thumb_모아나@3x.jpg 3x"  alt="모아나" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="모아나">모아나</a></h3>
@@ -355,7 +356,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_공조.jpg" srcset="img/thumbs/thumb_공조.jpg 1x, img/thumbs/thumb_공조@2x.jpg 2x, img/thumbs/thumb_공조@3x.jpg 3x"  alt="공조" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_공조.jpg" srcset="img/thumbs/thumb_공조.jpg 1x, img/thumbs/thumb_공조@2x.jpg 2x, img/thumbs/thumb_공조@3x.jpg 3x"  alt="공조" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="공조">공조</a></h3>
@@ -368,7 +369,7 @@
                     </figure>
                     <figure role="group" class="gallery__item">
                         <a class="gallery__item__link" href="#">
-                            <img class="gallery__item__image" src="img/thumbs/thumb_다른길.jpg" srcset="img/thumbs/thumb_다른길.jpg 1x, img/thumbs/thumb_다른길@2x.jpg 2x, img/thumbs/thumb_다른길@3x.jpg 3x"  alt="다른 길이 있다" />
+                            <img class="gallery__item__image image--nodrag" src="img/thumbs/thumb_다른길.jpg" srcset="img/thumbs/thumb_다른길.jpg 1x, img/thumbs/thumb_다른길@2x.jpg 2x, img/thumbs/thumb_다른길@3x.jpg 3x"  alt="다른 길이 있다" />
                         </a>
                         <figcaption class="gallery__item__caption">
                             <h3 class="gallery__item__title"><a href="#" title="다른 길이 있다">다른 길이 있다</a></h3>
@@ -438,14 +439,14 @@
     </footer>
 
     <!-- 슬라이드아웃 메뉴 -->
-    <aside role="complementary" id="sidemenu" class="sidebar">
-        <div class="sidebar__account">
+    <aside role="complementary" id="sidemenu" class="sidemenu" aria-hidden="true">
+        <div class="sidemenu__account">
             <ul role="menu" class="list-inline inline-fix">
                 <li role="presentation" class="list-inline__item"><a role="menuitem" class="login" href="#">로그인</a></li>
                 <li role="presentation" class="list-inline__item"><a role="menuitem" class="signup" href="#">계정 만들기</a></li>
             </ul>
         </div>
-        <nav role="navigation" class="sidebar__menuset">
+        <nav role="navigation" class="sidemenu__menuset">
             <h2>영화 탐색하기</h2>
             <ul role="menu" class="list-unstyled">
                 <li role="presentation"><a role="menuitem" href="#">
@@ -462,7 +463,7 @@
                 </a></li>
             </ul>
         </nav>
-        <nav role="navigation" class="sidebar__menuset">
+        <nav role="navigation" class="sidemenu__menuset">
             <h2>추가 메뉴</h2>
             <ul role="menu" class="list-unstyled">
                 <li role="presentation"><a role="menuitem" href="#">
@@ -482,7 +483,9 @@
     </aside>
     
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <!-- HammerJS: gesture support -->
+    <script type="text/javascript" src="plugins/HammerJS/hammer.min.js"></script>
     <!-- JavaScript: Custom scripts -->
     <script type="text/javascript" src="js/common.min.js"></script>
 

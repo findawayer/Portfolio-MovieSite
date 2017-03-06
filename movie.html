@@ -17,7 +17,8 @@
     <meta name="keywords" content="영화, 엔터테인먼트, 트렌드" />
     <meta name="author" content="Seoul Arts Center" />
     <meta name="robots" content="index, follow" />
-    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="telephone=no" /><!-- remove telephone call trigger -->
+    <meta name="msapplication-tap-highlight" content="no" /><!-- remove tap highlighting in WinPhones -->
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32" />
@@ -569,7 +570,9 @@
     </aside>
 
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <!-- HammerJS: gesture support -->
+    <script type="text/javascript" src="plugins/HammerJS/hammer.min.js"></script>
     <!-- JavaScript: Plugins -->
     <script type="text/javascript" src="plugins/five-star-rating/js/src/rating.min.js"></script>
     <script type="text/javascript" src="plugins/dhtmlxCalendar/dhtmlxcalendar.js"></script>

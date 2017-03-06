@@ -308,7 +308,7 @@
 
 /* 사이드바
  --------------------------------------------------*/
-.sidebar {
+.sidemenu {
     background: @gunmetal;
     box-shadow: 2px 0 5px rgba(0, 0, 0, .12);
     box-sizing: border-box;
@@ -320,13 +320,11 @@
     left: -300px;
     bottom: 0;
     z-index: 200;
-    .hw-accel(0, 0, 0);
-    transition: all .3s ease-out;
-    transition-property: -webkit-transform, -ms-transform, transform;
+    transition: left .3s ease-out;
     -webkit-overflow-scrolling: touch;
 
-    &.open {
-        transform: translate3d(100%, 0, 0);
+    &--open {
+        left: 0;
     }
 
     &__account {
