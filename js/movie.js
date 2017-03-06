@@ -83,16 +83,6 @@
             visible: false
         };
 
-        // 모든 리소스 로드가 끝나면 iframe 생성
-        $( window ).load( function() {
-            setPlayer( $selector.showButton.data( "youtube" ) );
-        });
-
-        // 리사이즈나 화면 회전시 플레이어 크기 다시 설정
-        $( window ).on( "resize orientationchange", function() {
-            resizePlayer();
-        });
-
         // 보이기, 숨기기 버튼 활성화
         $selector.showButton.on( "click", showPlayer );
         $selector.hideButton.on( "click", hidePlayer );
@@ -106,7 +96,13 @@
                 playerVars: player.query
             });
 
+            // 처음 플레이어 크기 설정
             resizePlayer();
+
+            // 리사이즈나 화면 회전시 플레이어 크기 다시 설정
+            $( window ).on( "resize orientationchange", function() {
+                resizePlayer();
+            });
         }
 
         // 화면 크기에 비례해 iframe의 크기 조절
@@ -129,6 +125,11 @@
 
         // iframe 및 마스크 레이어를 보이기
         function showPlayer() {
+            // 처음 클릭시 iframe을 생성 
+            if ( !player.obj ) {
+                setPlayer( $selector.showButton.data( "youtube" ) );
+            }
+
             $selector.body.addClass( "modal-is-on" );
             $selector.overlay.show();
             player.obj.playVideo();
