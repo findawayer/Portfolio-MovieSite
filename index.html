@@ -4,11 +4,12 @@
 
 <head>
 
-    <!-- Charset, Viewport -->
+    <!-- Charset, Compatibility, Viewport, Cache -->
     <meta charset="UTF-8" />
     <meta http-equiv="Content-Language" content="ko-KR" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-Control" content="max-age=6000, must-revalidate" />
     <!-- Title -->
     <title>최근 영화목록 | 무빙</title>
     <!-- Description -->
@@ -62,10 +63,10 @@
         <div class="container">
 
             <!-- 페이지 제목 -->
-            <div class="content__heading">
+            <section class="content__heading">
                 <h1>최근 영화목록</h1>
                 <p>상영중인 영화, 개봉이 임박한 영화를 한눈에 찾아보세요.</p>
-            </div>
+            </section>
 
             <!-- 상영중인 영화 -->
             <section role="region" id="ongoingMovies" class="content__section movielist">
