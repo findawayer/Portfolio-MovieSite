@@ -51,7 +51,7 @@
     font-size: 0;
 
     > * {
-        font-size: 1rem;
+        font-size: @base-font-size;
     }
 }
 
@@ -120,7 +120,7 @@
     padding: 10px 20px 12px;
     height: 44px;
     text-align: center;
-    font-size: 1rem;
+    font-size: @base-font-size;
     line-height: 18px;
     box-sizing: border-box;
     touch-action: manipulation;
@@ -151,27 +151,26 @@
     -webkit-appearance: none !important;
     -moz-appearance: none !important;
     appearance: none !important;
-}
 
-// 인풋 플레이스홀더
-.ui-input-group {
-    padding-top: 16px;
-    position: relative;
-}
-.ui-input-placeholder {
-    color: @medium-gray;
-    position: absolute;
-    top: 27px;
-    left: 1em;
-    line-height: 14px;
-    font-size: 14px;
-    cursor: text;
-    transition: top .2s, left .2s, font-size .2s;
+    // 인풋 플레이스홀더
+    &-group {
+        padding-top: 20px;
+        position: relative;
+    }
+    &-placeholder {
+        color: @medium-gray;
+        position: absolute;
+        top: 27px;
+        left: 1em;
+        line-height: 1.2;
+        font-size: @base-font-size;
+        cursor: text;
+        transition: top .2s, left .2s;
 
-    &--float {
-        top: 0;
-        left: 0;
-        font-size: 12px;
+        &--float {
+            top: 0;
+            left: 0;
+        }
     }
 }
 
@@ -346,7 +345,7 @@
     color: @medium-gray;
     display: inline-block;
     padding: .15em .45em;
-    font-size: @base-font-size * 0.85;
+    font-size: small;
 }
 
 // 갤러리
@@ -409,7 +408,7 @@
         }
 
         &__release {
-            font-size: 13px;
+            font-size: small;
         }
     }
 }
