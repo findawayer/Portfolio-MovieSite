@@ -45,59 +45,6 @@
 		}
 	})();
 
-	/**
-	 * 터치 횡스크롤 활성화 (Hammer 플러그인 사용)
-	 * "touch-scrollable" 클래스를 가진 요소를 제스처로 횡스크롤
-	 * Hammer API: http://hammerjs.github.io/api/
-	 */
-	( function setTouchScrollable( $targets ) {
-		if ( !$targets.length ) return;
-
-		var watchPan = function( el ) {
-			this.node = el;
-			this.inner = this.wrapInner();
-			this.setWatcher();
-
-			var $inner = $( this.inner );
-			var offset = {};
-
-			offset.start = ( this.node.scrollWidth - this.node.offsetWidth ) * -1;
-			offset.end = 0;
-
-			$inner.on( "panstart", function( event ) {
-				offset.current = parseInt( $inner.css( "left" ) );
-			});
-
-			$inner.on( "pan", function( event ) {
-				var delta = offset.current + event.originalEvent.gesture.deltaX;
-				console.log(offset.start, delta, offset.end);
-
-				if ( offset.start <= delta && delta <= offset.end )
-					$inner.css({ left: delta });
-			});
-		};
-
-		watchPan.prototype = {
-			wrapInner: function() {
-				$( this.node ).wrapInner( "<div class=\"touch-scrollable__inner\"></div>" );
-				return this.node.children[0];
-			},
-			setWatcher: function() {
-				this.watcher = new Hammer.Manager( this.inner, {
-					domEvents: true,
-					recognizers: [
-						[ Hammer.Pan, { direction: Hammer.DIRECTION_HORIZONTAL } ]
-					]
-				});
-			}
-		};
-
-		$targets.each( function( i, target ) {
-			new watchPan( target );
-		});
-
-	})( $( ".touch-scrollable" ) );
-
 	/* 플로팅 레이블 */
 	( function floatingLabels( $targets ) {
 		if ( !$targets.length ) return;
