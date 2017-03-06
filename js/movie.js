@@ -76,6 +76,7 @@
                 enablejsapi: 1,
                 modestbranding: 1, // YouTube 로고 감춤
                 rel: 0, // 관련 동영상 표시
+                showinfo: 0, // 제목, 업로더 감춤
                 iv_load_policy: 3 // 특수효과 감춤
             },
             visible: false
@@ -114,11 +115,11 @@
             viewport.width = $( window ).width();
             viewport.height = $( window ).height();
 
-            frame.width = viewport.width * 0.8;
+            frame.width = viewport.width;
             frame.height = frame.width / 1.6; // 16 : 10
 
             modal.top = ( ( viewport.height - frame.height ) / 2 ) + "px";
-            modal.left = ( ( viewport.width - frame.width ) / 2 ) + "px";
+            modal.left = "0px";
 
             $selector.modal.css( modal );
 
@@ -128,16 +129,15 @@
         // iframe 및 마스크 레이어를 보이기
         function showPlayer() {
             $selector.body.addClass( "modal-is-on" );
-            $selector.overlay.fadeIn( function() { // fadeIn 완료 후 콜백
-                player.obj.playVideo();
-            });
+            $selector.overlay.show();
+            player.obj.playVideo();
             player.visible = true;
         }
 
         // iframe 및 마스크 레이어를 감추기
         function hidePlayer() {
             player.obj.stopVideo();
-            $selector.overlay.fadeOut();
+            $selector.overlay.hide();
             $selector.body.removeClass( "modal-is-on" );
             player.visible = false;
         }
