@@ -73,6 +73,7 @@
                 theme: "dark",
                 color: "white",
                 autohide: 1,
+                autoplay: 1,
                 enablejsapi: 1,
                 modestbranding: 1, // YouTube 로고 감춤
                 rel: 0, // 관련 동영상 표시
