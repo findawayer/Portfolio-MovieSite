@@ -61,11 +61,4 @@
 		}
 	})( $( ".text-collapsed" ) );
 
-	/* 터치 횡스크롤 활성화
-	 * 플러그인: smoothTouchScroll
-	 * 디펜던시: jQuery, jQuery UI, jQuery kinetic */
-	if ( $.fn.smoothTouchScroll ) {
-		$(".touch-scrollable").smoothTouchScroll();
-	}
-
 })( window, document, jQuery );
