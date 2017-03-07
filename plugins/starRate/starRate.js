@@ -10,7 +10,7 @@
      * Display a rating value on both star icons and plain text forms.
      * Users are able to dynamically select/correct their personal rating.
      *
-     * @dependencies: jQuery (any version)
+     * @dependency jQuery(any version)
      *
      * @param defaultLength {Number}     initial rating value.
      * @param maxLength {Number}         maximum rating value.
@@ -48,12 +48,11 @@
                 throw Error("Selected element does not exist.");
             }
             if (config.defaultLength > config.maxLength) {
-                throw Error("defaultLength value must be smaller or equal than maxLength value.");
+                throw Error("defaultLength must be a smaller or equal value than maxLength value.");
             }
 
             // store merged "default settings" and "user config" into variable "o"
-            if (!$.isEmptyObject(config))
-                $.extend(o, defaults, config);
+            $.extend(o, defaults, config);
 
             // initiate
             $obj.init = function() {
@@ -62,37 +61,37 @@
 
                 // update rating by clicking on a star icon
                 $obj.on("click", "i", function() {
-                    $obj.updateRating($(this).data("rating"));
+                    $obj.updateRating($(this).data("star-index"));
                 });
             };
 
             // insert star icons
             // @return {jQuery object}   jQuery starRate instance (for chaining support)
             $obj.addStars = function(boolean) {
-                var wrapper, star;
+                var $wrapper, star;
 
                 // group stars in a wrapper if the user wants to the text displayed
                 if (o.displayText) {
-                    wrapper = document.createElement("span");
-                    $obj[0].appendChild(wrapper);
+                    $wrapper = $("<span />");
+                    $wrapper
+                        .addClass(o.starWrapperClass) // add a class to ease styling
+                        .attr("role", "presentation") // prevent the star icons from being mapped to the accessibility API
+                        .attr("aria-hidden", "true")
+                        .appendTo($obj);
                 } else {
-                    wrapper = $obj[0];
+                    wrapper = $obj[0]; // if `displayText` is not set to `true`, do not add inner wrapper
                 }
-
-                // add a class to the wrapper to ease styling
-                $(wrapper).addClass(o.starWrapperClass);
-
-                // prevent the container from being mapped to the accessibility API
-                wrapper.setAttribute("role", "presentation");
-                wrapper.setAttribute("aria-hidden", "true");
+                
+                // make textual change announced on sound readers
+                $obj.attr("aria-live", "polite").attr("aria-relavant", "text");
                 
                 // make as many star elements as required
                 for (var i = 0; i < o.maxLength; i++) {
                     star = document.createElement("i");
                     star.className = i < o.defaultLength ? o.starClass + " " + o.activeStarClass : o.starClass;
-                    star.setAttribute("data-rating", i+1);
+                    star.setAttribute("data-star-index", i+1);
                     stars.push(star); // add star elements into `stars` array to ease afterward manipulation
-                    wrapper.appendChild(star); // append star to the container
+                    $wrapper[0].appendChild(star); // append star to the container
                 }
 
                 return $obj; // chaning support
