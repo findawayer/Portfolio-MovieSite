@@ -4,13 +4,12 @@
 
     /**
      * starRate
-     *
-     * (c) 2017, findawayer | MIT license
      * 
-     * Display a rating value on both star icons and plain text forms.
-     * Users are able to dynamically select/correct their personal rating.
-     *
-     * @dependency jQuery(any version)
+     * Description:    Display a rating value on both star icons and plain text forms.
+     *                 Users are able to dynamically select/correct their personal rating.
+     * Dependencies:   jQuery(any version)
+     * Author:         findawayer (Tae Sung Lim)
+     * License:        MIT license
      *
      * @param defaultLength {Number}     initial rating value.
      * @param maxLength {Number}         maximum rating value.
@@ -54,7 +53,10 @@
             // store merged "default settings" and "user config" into variable "o"
             $.extend(o, defaults, config);
 
-            // initiate
+            /**
+             * initiate the plugin
+             * @return {undefined}
+             */
             $obj.init = function() {
                 // add star icons & text according to the user config
                 $obj.addStars().addText();
@@ -65,8 +67,10 @@
                 });
             };
 
-            // insert star icons
-            // @return {jQuery object}   jQuery starRate instance (for chaining support)
+            /**
+             * insert star icons
+             * @return {jQuery object}   jQuery starRate instance (for chaining support)
+             */
             $obj.addStars = function(boolean) {
                 var $wrapper, star;
 
@@ -97,8 +101,10 @@
                 return $obj; // chaning support
             };
 
-            // add rating text
-            // @return {jQuery object}   jQuery starRate instance (for chaining support)
+            /**
+             * add rating text
+             * @return {jQuery object}   jQuery starRate instance (for chaining support)
+             */
             $obj.addText = function() {
                 if (!o.displayText) return;
 
@@ -114,8 +120,10 @@
                 return $obj; // chaning support
             };
 
-            // update star icons and text
-            // @return {jQuery object}   jQuery starRate instance (for chaining support)
+            /**
+             * update star icons and text
+             * @return {jQuery object}   jQuery starRate instance (for chaining support)
+             */
             $obj.updateRating = function(ratingString) {
                 // convert rating string to number
                 o.currentRating = Number(ratingString);
@@ -129,8 +137,10 @@
                 return $obj;
             };
 
-            // update the star icons
-            // @return {jQuery object}   jQuery starRate instance (for chaining support)
+            /**
+             * update the star icons
+             * @return {jQuery object}   jQuery starRate instance (for chaining support)
+             */
             $obj.updateStars = function() {
                 var i, $star;
 
@@ -142,8 +152,10 @@
                 return $obj;
             };
 
-            // update the text
-            // @return {jQuery object}   jQuery starRate instance (for chaining support)
+            /**
+             * update the text
+             * @return {jQuery object}   jQuery starRate instance (for chaining support)
+             */
             $obj.updateText = function() {
                 if (!o.displayText) return;
                 $text.text(o.currentRating);
