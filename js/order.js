@@ -7,7 +7,7 @@
 		minusButton: $( "#decreaseQuantity" ),
 		total: $( "#orderTotal" ),
 		maxValue: 10
-	}
+	};
 
 	$tq.plusButton.on( "click", function( event ) {
 		event.preventDefault();
@@ -26,7 +26,7 @@
 			$tq.field.val( value );
 			$tq.total.text( (value * 9500).toLocaleString() );
 		} else {
-			alert( "티켓은 한 번에 " + $tq.maxValue + "장까지 예매하실 수 없습니다." );
+			alert( "티켓은 한 번에 " + $tq.maxValue + "장을 초과해 예매하실 수 없습니다." );
 		}
 	}
 
