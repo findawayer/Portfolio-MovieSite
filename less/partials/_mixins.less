@@ -294,25 +294,25 @@
     }
 }
 
-.five-star-rating {
+.ratings {
     display: inline;
     &:extend( .list-unstyled );
-    .inline-fix;
-    
-    &.dynamic {
-        cursor: pointer;
-        touch-action: manipulation;
 
-        &.submitted {
-            cursor: default;
-            touch-action: none;
+    &__stars {
+        .inline-fix();
+    }
+
+    &__text {
+        color: @deep-lemon;
+        margin-left: .5em;
+    }
+    
+    &--dynamic {
+        .star {
+            cursor: pointer;
+            touch-action: manipulation;
         }
     }
-}
-
-.numbered-rating {
-    color: @deep-lemon;
-    margin-left: .5em;
 }
 
 // 막대그래프

@@ -29,28 +29,17 @@
     myCalendar.setDate( new Date( 2017, 0, 1 ) );
 
     /**
-     * 나의 코멘트 활성화
-     * `FiveStarRating` 플러그인 사용
-     * Ref: http://callmenick.com/post/five-star-rating-component-with-javascript-css
+     * 영화에 별점 주기 활성화
+     * starRate 플러그인 사용
      */
-    var myRatingConfig = {
-        $container: document.getElementById( "myRatingStars" ),
-        curValue: 0,
-        maxValue: 10,
-        callback: function( rating ) {
-            myRatingConfig.container.nextElementSibling.innerText = rating;
-        }
-    };
-
-    // 위 세팅을 패스시켜 `FiveStarRating` 플러그인을 적용
-    if ( myRatingConfig.container ) {
-        rating(
-            myRatingConfig.container,
-            myRatingConfig.curValue,
-            myRatingConfig.maxValue,
-            myRatingConfig.callback
-        );
-    }
+    $( "#myRatingStars" ).starRate({
+        maxLength: 10,
+        displayText: true,
+        starClass: "star",
+        activeStarClass: "star--active",
+        starWrapperClass: "ratings__stars",
+        textClass: "ratings__text"
+    });
 
     /**
      * 트레일러 영상 플레이어를 활성화
