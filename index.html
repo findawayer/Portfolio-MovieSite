@@ -42,7 +42,7 @@
         <div class="container">
             
             <div class="header__masthead group">
-                <button role="button" id="sidemenuTrigger" class="header__menu hamburger hamburger--dark" aria-haspopup="true" aria-expanded="false">
+                <button role="button" id="sidemenuTrigger" class="header__menu hamburger hamburger--dark">
                     <span class="hamburger__stripe hamburger__stripe--first"></span>
                     <span class="hamburger__stripe hamburger__stripe--second"></span>
                     <span class="hamburger__stripe hamburger__stripe--third"></span>
@@ -51,9 +51,11 @@
                 <a role="button" class="header__home" href="#">무빙</a>
             </div>
 
-            <form id="searchBox" name="searchBox" class="header__search input-group">
-                <input type="search" id="search" name="search" class="ui-input" />
-                <label for="search" class="input-placeholder">검색어를 입력하세요.</label>
+            <form id="searchBox" name="searchBox" class="header__search">
+                <div role="search" class="ui-input-group">
+                    <label for="search" class="ui-placeholder">검색어를 입력하세요.</label>
+                    <input type="search" id="search" name="search" class="ui-input" />
+                </div>
             </form>
 
         </div>

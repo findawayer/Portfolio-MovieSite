@@ -159,27 +159,23 @@
     -webkit-appearance: none !important;
     -moz-appearance: none !important;
     appearance: none !important;
+}
 
-    // 인풋 플레이스홀더
-    &-group {
-        padding-top: 20px;
-        position: relative;
-    }
-    &-placeholder {
-        color: @medium-gray;
-        position: absolute;
-        top: 27px;
-        left: 1em;
-        line-height: 1.2;
-        font-size: @base-font-size;
-        cursor: text;
-        transition: top .2s, left .2s;
+// 인풋 플레이스홀더
+.ui-input-group {
+    position: relative;
+}
 
-        &--float {
-            top: 0;
-            left: 0;
-        }
-    }
+.ui-placeholder {
+    color: @medium-gray;
+    padding: 0 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 36px;
+    font-size: @base-font-size;
+    cursor: text;
+    transition: top .2s, left .2s;
 }
 
 // 셀렉트
