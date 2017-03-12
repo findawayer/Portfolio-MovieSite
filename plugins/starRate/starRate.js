@@ -54,24 +54,24 @@
             $.extend(o, defaults, config);
 
             /**
-             * initiate the plugin
+             * @private initiate the plugin
              * @return {undefined}
              */
-            $obj.init = function() {
+            $obj._init = function() {
                 // add star icons & text according to the user config
-                $obj.addStars().addText();
+                $obj._addStars()._addText();
 
                 // update rating by clicking on a star icon
                 $obj.on("click", "i", function() {
-                    $obj.updateRating($(this).data("star-index"));
+                    $obj.update($(this).data("star-index"));
                 });
             };
 
             /**
-             * insert star icons
+             * private insert star icons
              * @return {jQuery object}   jQuery starRate instance (for chaining support)
              */
-            $obj.addStars = function(boolean) {
+            $obj._addStars = function(boolean) {
                 var $wrapper, star;
 
                 // group stars in a wrapper if the user wants to the text displayed
@@ -98,14 +98,14 @@
                     $wrapper[0].appendChild(star); // append star to the container
                 }
 
-                return $obj; // chaning support
+                return $obj;
             };
 
             /**
-             * add rating text
+             * private add rating text
              * @return {jQuery object}   jQuery starRate instance (for chaining support)
              */
-            $obj.addText = function() {
+            $obj._addText = function() {
                 if (!o.displayText) return;
 
                 var text;
@@ -117,14 +117,14 @@
                 $text = $(text);
                 $text.appendTo($obj);
 
-                return $obj; // chaning support
+                return $obj;
             };
 
             /**
              * update star icons and text
-             * @return {jQuery object}   jQuery starRate instance (for chaining support)
+             * @return {undefined}
              */
-            $obj.updateRating = function(ratingString) {
+            $obj.update = function(ratingString) {
                 // convert rating string to number
                 o.currentRating = Number(ratingString);
                 // update stars and rating
@@ -133,8 +133,6 @@
                 // if a callback function is supplied, execute it
                 if (o.onUpdate && typeof o.onUpdate == "function")
                     o.onUpdate(o.currentRating); // pass current rating
-
-                return $obj;
             };
 
             /**
@@ -165,9 +163,8 @@
 
             // start the initiation on document ready
             $(document).ready(function() {
-                $obj.init();
+                $obj._init();
             });
-
         });
     };
 
