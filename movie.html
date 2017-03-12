@@ -19,6 +19,11 @@
     <meta name="robots" content="index, follow" />
     <meta name="format-detection" content="telephone=no" /><!-- remove telephone call trigger -->
     <meta name="msapplication-tap-highlight" content="no" /><!-- remove tap highlighting in WinPhones -->
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://code.jquery.com/" />
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin />
+    <link rel="preconnect" href="https://www.youtube.com/" crossorigin />
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32" />
@@ -27,7 +32,7 @@
     <link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#1f2124" />
     <meta name="theme-color" content="#1f2124" />
     <!-- Icon Font -->
-    <link rel="stylesheet" type="text/css" href="plugins/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous" />
     <!-- CSS: Plugins -->
     <link rel="stylesheet" type="text/css" href="css/dhtmlxcalendar_material_dark.css" />
     <!-- CSS: Custom -->
@@ -583,7 +588,7 @@
     </aside>
 
     <!-- jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <!-- HammerJS: gesture support -->
     <script type="text/javascript" src="plugins/HammerJS/hammer.min.js"></script>
     <!-- YouTube API -->
@@ -593,7 +598,7 @@
     <script type="text/javascript" src="plugins/starRate/starRate.min.js"></script>
     <!-- JavaScript: custom scripts -->
     <script type="text/javascript" src="js/common.min.js"></script>
-    <script type="text/javascript" src="js/movie.min.js"></script>
+    <script type="text/javascript" src="js/movie.js"></script>
 
 </body>
 
